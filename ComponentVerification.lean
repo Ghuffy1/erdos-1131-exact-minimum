@@ -1,0 +1,78 @@
+import OriginalThreshold
+import ParametricSystem
+import BoundedMonomials
+import EncodingDegrees
+import PolynomialDifferentiation
+import MonomialConfluence
+import TraceConstruction
+import TraceNilpotents
+import ReducedAlgebra
+import ComplexTraceForm
+import QuadraticSurjection
+import BoundaryPolynomial
+import HermiteSignature
+import NormalizedTrace
+import CoefficientDegrees
+import RootSelection
+import PolynomialEnergy
+import HomogeneousLowerBound
+import CompleteSolution
+
+/-! Kernel axiom inspection of the exact-minimum construction. -/
+
+#print axioms Erdos1131.minimum_one
+#print axioms Erdos1131.energy_lower_bound
+#print axioms Erdos1131.integral_mapped_rational_polynomial
+#print axioms Erdos1131.integralNumerator_eq_energy
+#print axioms Erdos1131.squared_gap_parametrization_surjective
+#print axioms Erdos1131.thresholdExpression_globally_nonnegative_iff
+#print axioms Erdos1131.critical_points_singleton_iff_endpoint_bound
+#print axioms Erdos1131.fekete_contains_endpoints
+#print axioms Erdos1131.fekete_squareSum_derivative_zero
+#print axioms Erdos1131.minimum_lt_two
+#print axioms Erdos1131.expandedNodes_improves_energy
+#print axioms Erdos1131.endpointMinimum_eq_minimum
+#print axioms Erdos1131.original_polynomial_threshold
+#print axioms Erdos1131.original_critical_point_threshold
+#print axioms Erdos1131.evaluate_parametricThreshold
+#print axioms Erdos1131.boundedMonomials_linearIndependent
+#print axioms Erdos1131.numeratorPolynomial_homogeneous
+#print axioms Erdos1131.denominatorPolynomial_homogeneous
+#print axioms Erdos1131.normalizedGradient_tail_totalDegree_le
+#print axioms Erdos1131.normalizedGradient_original_threshold
+#print axioms Erdos1131.MonomialReduction.normalForm_idempotent
+#print axioms Erdos1131.MonomialReduction.normalMonomial_rule
+#print axioms Erdos1131.MonomialReduction.quotientBasis
+#print axioms Erdos1131.normalizedGradientBasis
+#print axioms Erdos1131.specializedGradient_finrank
+#print axioms Erdos1131.MonomialReduction.quotientBaseChange_repr
+#print axioms Erdos1131.specializedHermiteMatrix_eq_map
+#print axioms Erdos1131.specializedHermiteMatrix_charpoly
+#print axioms Erdos1131.hermiteCharacteristicPolynomial_natDegree
+#print axioms Erdos1131.algebraTraceForm_nilpotent
+#print axioms Erdos1131.quotientNilradicalTrace_idempotent_pos
+#print axioms Erdos1131.reducedProductTrace_coordinate_pos
+#print axioms Erdos1131.residue_real_or_complex
+#print axioms Erdos1131.complex_multiplicativeQuadratic_sigPos
+#print axioms Erdos1131.complex_multiplicativeQuadratic_sigNeg
+#print axioms Erdos1131.sigPos_comp_surjective
+#print axioms Erdos1131.sigNeg_comp_surjective
+#print axioms Erdos1131.boundaryPolynomial_ne_zero
+#print axioms Erdos1131.charpoly_trailingDegree_off_boundary
+#print axioms Erdos1131.sigPos_pi
+#print axioms Erdos1131.traceQuadratic_signature
+#print axioms Erdos1131.realCharactersEquiv
+#print axioms Erdos1131.MonomialReduction.zerosEquivCharacters
+#print axioms Erdos1131.MonomialReduction.finite_relationZeroSet
+#print axioms Erdos1131.MonomialReduction.hermiteMatrix_signature
+#print axioms Erdos1131.specializedHermite_signature_threshold
+#print axioms Erdos1131.normalized_normalMonomial_weightBound
+#print axioms Erdos1131.parametricHermiteMatrix_entry_degree
+#print axioms Erdos1131.boundaryPolynomial_degree
+#print axioms Erdos1131.matrixSignature_eventually_constant
+#print axioms Erdos1131.minimum_mem_boundaryRoots
+#print axioms Erdos1131.algebraicMinimum_eq_minimum
+#print axioms Erdos1131.coefficientEnergy_pos
+#print axioms Erdos1131.positive_homogeneous_lower_bound
+#print axioms Erdos1131.minimum_attained
+#print axioms Erdos1131.erdos1131_solution

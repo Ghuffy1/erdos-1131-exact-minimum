@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "Please cite the mathematical paper and preserve the prior-work credits in THIRD_PARTY.md."
+title: "An exact algebraic construction for Erdős's interpolation minimum"
+type: software
+version: 1.0.0
+license: Apache-2.0
+repository-code: "https://github.com/Ghuffy1/erdos-1131-exact-minimum"
+authors:
+  - family-names: Howe
+    given-names: Will
+    email: howew@purdue.edu
+    website: "https://github.com/H0W4RD-dev"
+  - family-names: Huffman
+    given-names: Grant
+    email: huffma97@purdue.edu
+    website: "https://github.com/Ghuffy1"
+  - family-names: Kohlmeyer
+    given-names: Jensen
+    email: jenwin@purdue.edu
+    website: "https://github.com/JENW1N"
+  - family-names: Kruer
+    given-names: Liam
+    email: kruerl@purdue.edu
+    website: "https://github.com/lkruer"
+abstract: >-
+  An exact algebraic value rule and attained minimum for the ordinary squared
+  Lagrange interpolation integral at every positive number of distinct real nodes.
+  The combined formal statement incorporates the credited prior disproof of the
+  coefficient-one asymptotic through proved source-correspondence bridges.
+keywords:
+  - Lagrange interpolation
+  - Erdős Problem 1131
+  - Hermite matrices
+  - exact algebraic minimum
+  - formal proof

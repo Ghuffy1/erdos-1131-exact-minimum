@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.pdf binary
+# Unified diff context markers are part of the patch format.
+*.diff -whitespace

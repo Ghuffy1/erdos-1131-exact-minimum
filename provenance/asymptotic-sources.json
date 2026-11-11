@@ -1,0 +1,85 @@
+{
+  "repository": "https://github.com/seanm27lol/erdos-1131-lean",
+  "commit": "31574acf09ae50430c08da92288800fe7d26c7fd",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "original_file": "Erdos1131/AsymptoticConclusion.lean",
+      "original_sha256": "d9f3e910f0b32188312cf0ff8e97caf9ebefe1b2cc9132344ccae64f969955d6",
+      "adapted_file": "Erdos1131Asymptotic/AsymptoticConclusion.lean",
+      "adapted_sha256": "a8c24d1ad760c3c7229f3386d87d24cea91e8040c99abd4225a2514f2f8ddc94"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevBound.lean",
+      "original_sha256": "3534ec17fc176b229b9fa565a60798445ebf9eed6dd659eefb2bfff77524a2d0",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevBound.lean",
+      "adapted_sha256": "2791fd74c16bd4b447d3076d5cf55879c2246d66b80dde9dca28fd909ebd727a"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevFamily.lean",
+      "original_sha256": "d9587de082d9f0eded852360d3af1991308b3730ac77df6ea6b26874108c8f35",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevFamily.lean",
+      "adapted_sha256": "5fbc1a2b619cadd502671ba112251823a4b33769ef0ea99e58798f6faaddc9ed"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevFirstOrder.lean",
+      "original_sha256": "d985902723e6b30b6a598c62cc6c9c54a1ce7c9198683050ed0f6daac44772e6",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevFirstOrder.lean",
+      "adapted_sha256": "e6c3f68867aac78ea193c9a7d3d57ccb0e7adcb025b97d9e43abe15c49fdf005"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevGram.lean",
+      "original_sha256": "108c706ca9cbd54f9ef84437462069b8536f4df13562bf597051cebc9062b114",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevGram.lean",
+      "adapted_sha256": "41e0ad36076af4ff490671638e7e21089372d7485119c2e2738e88957b0c00a9"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevMoment.lean",
+      "original_sha256": "edb08aab5563f60c8564a12d706216c1ba694048aa0a85fd8a5aed5476748b52",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevMoment.lean",
+      "adapted_sha256": "e92511085d4c7c674dad14a3baf7800f6ad7a8d93428a853b50e14b6a47afb0d"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevResolvent.lean",
+      "original_sha256": "aba9c2d5957badd56145c6e9f7d5cff2d7539acdc91b5b66e8ec60c1c1fd7eba",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevResolvent.lean",
+      "adapted_sha256": "fbbbcd4f14907d8529329e33d5e0b86a6586f0dd40bbcdab58cc818e73d34cae"
+    },
+    {
+      "original_file": "Erdos1131/ChebyshevRootSums.lean",
+      "original_sha256": "55a24ef2afffe94583de49921186bbdf828f02ac0ca3c0c2177b7fe53dadbf91",
+      "adapted_file": "Erdos1131Asymptotic/ChebyshevRootSums.lean",
+      "adapted_sha256": "f430d26e399ce9b9bf14eab26fd4abf3525f90a38ba1a5b259e5306982f341db"
+    },
+    {
+      "original_file": "Erdos1131/Definitions.lean",
+      "original_sha256": "61454cb809449c9345d0b83a0a1f6f76ac48226d85f6efd78fcff4e5283fd6d5",
+      "adapted_file": "Erdos1131Asymptotic/Definitions.lean",
+      "adapted_sha256": "67f75604c0702cce39d84f84aaed32340be9826b6f7f6f4c5fa68c55e745d986"
+    },
+    {
+      "original_file": "Erdos1131/DisproofBridge.lean",
+      "original_sha256": "799d28ad9c0e4df0f9d7ecbcb86128d102847bef6f8a6382ba744c78b761e905",
+      "adapted_file": "Erdos1131Asymptotic/DisproofBridge.lean",
+      "adapted_sha256": "a741e3ee2347792c970577438fb071097f00d9a9303248ba2faedc5828fc0338"
+    },
+    {
+      "original_file": "Erdos1131/FiniteComparison.lean",
+      "original_sha256": "a763a0d0ea380df8e0c2573f62d2d03abb1e684e4cc21ca9899349fe0349d443",
+      "adapted_file": "Erdos1131Asymptotic/FiniteComparison.lean",
+      "adapted_sha256": "3d74da143b956e479b234d7fcbc3f229b11c2e3a820644860259a3555239e43c"
+    },
+    {
+      "original_file": "Erdos1131/InterpolationTrace.lean",
+      "original_sha256": "d37ec77dc7b1affd81b237805b09702a8d22eb2a1f35b4fb2dd0fb6af5279c71",
+      "adapted_file": "Erdos1131Asymptotic/InterpolationTrace.lean",
+      "adapted_sha256": "8f4b87f45fd3f15f374b8871d52f277f74a7be3b24dc20fde0257a41e6f2ad48"
+    },
+    {
+      "original_file": "Erdos1131/Main.lean",
+      "original_sha256": "e4da267ebc886af32d4b97e181209f0e2c076dd23c595a6068aec7e68fd70ca4",
+      "adapted_file": "Erdos1131Asymptotic/Main.lean",
+      "adapted_sha256": "f888abe2309807439f1fa5e1e2d9e39baa534f80ecc72a57c59a1c75c225d5f2"
+    }
+  ]
+}

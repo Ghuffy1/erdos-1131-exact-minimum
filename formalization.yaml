@@ -1,0 +1,43 @@
+schema_version: 1
+problem:
+  jsp: JSP-000938
+  erdos: 1131
+  source: https://www.erdosproblems.com/1131
+  scope: Exact finite-n minimum and the coefficient-one asymptotic question
+repository:
+  owner: Ghuffy1
+  name: erdos-1131-exact-minimum
+  branch: main
+submitting_account: Ghuffy1
+team_contribution: Equal contributions to the new exact-minimum work and its integration
+authors:
+  - name: Will Howe
+    github: H0W4RD-dev
+    github_id: 313979376
+    roles: [mathematical_solution, formalization, exposition]
+  - name: Grant Huffman
+    github: Ghuffy1
+    github_id: 318377012
+    roles: [mathematical_solution, formalization, exposition, submitting_contact]
+  - name: Jensen Kohlmeyer
+    github: JENW1N
+    github_id: 153095242
+    roles: [mathematical_solution, formalization, exposition]
+  - name: Liam Kruer
+    github: lkruer
+    github_id: 322680021
+    roles: [mathematical_solution, formalization, exposition]
+prior_contribution:
+  author: seanm27lol
+  repository: https://github.com/seanm27lol/erdos-1131-lean
+  commit: 31574acf09ae50430c08da92288800fe7d26c7fd
+  scope: Published coefficient-one asymptotic disproof and its original formalization
+  adapted_directory: Erdos1131Asymptotic
+  license: Apache-2.0
+ai_assistance:
+  provider: OpenAI
+  activities: [mathematical_exploration, proof_checking, formalization, manuscript_preparation]
+targets:
+  - Erdos1131.erdos1131_solution
+  - Erdos1131Submission.complete_problem
+  - OriginalProblem1131.full_original_problem

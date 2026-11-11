@@ -1,0 +1,14 @@
+Exact algebraic minima for Erdős Problem 1131
+Copyright 2026 Will Howe, Grant Huffman, Jensen Kohlmeyer, and Liam Kruer
+
+The new exact-minimum construction, exposition, and formalization are attributed
+equally to the four listed authors, with AI assistance acknowledged in AUTHORS.md.
+
+The files under Erdos1131Asymptotic/ and the mathematical exposition in
+references/seanm27lol-asymptotic-proof.md derive from
+https://github.com/seanm27lol/erdos-1131-lean
+at commit 31574acf09ae50430c08da92288800fe7d26c7fd, licensed under Apache-2.0.
+The original mathematical result and formalization retain their upstream credit.
+Adaptations and provenance are recorded in THIRD_PARTY.md and provenance/.
+
+Lean and mathlib are external dependencies with their own notices and licenses.

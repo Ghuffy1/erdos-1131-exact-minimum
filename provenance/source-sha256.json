@@ -1,0 +1,366 @@
+{
+  ".gitattributes": {
+    "bytes": 112,
+    "sha256": "3391c1d82da56959ea610ed3a6d5403efcb1db5b839ab2ee1c18b5aa8fd381d1"
+  },
+  ".gitignore": {
+    "bytes": 119,
+    "sha256": "a681d89ac948dd41e1a933a4e753a69ae29c457d932976c7c64e617b24ba056c"
+  },
+  "AUTHORS.md": {
+    "bytes": 1292,
+    "sha256": "4fbbbb48c9bef321676be1da0062b1ceeccff285fe1f86f8c0704fcb345da056"
+  },
+  "BoundaryPolynomial.lean": {
+    "bytes": 2695,
+    "sha256": "d01de196f030cf81b1a9176127e987fefce33d7d8c64c7a0cabffe36214d3471"
+  },
+  "BoundedMonomials.lean": {
+    "bytes": 2340,
+    "sha256": "abf76142a6ac6da117295285d0469a51deef64631f53d7a2c518794224639e84"
+  },
+  "Challenge.lean": {
+    "bytes": 2541,
+    "sha256": "3e8f820941306a027ae97e347cbe14ca574e8305dfd004d04fc6b41164fb852a"
+  },
+  "CITATION.cff": {
+    "bytes": 1260,
+    "sha256": "088931c16b03d5f126214a0c2da0aa63cc5b27f0800d82d392d0a685423e1fec"
+  },
+  "CoefficientDegrees.lean": {
+    "bytes": 4947,
+    "sha256": "fa8f51b957ce4b2b2d23bb6c4ef82927a709818abb4b2fed90bfe5847e198706"
+  },
+  "CompleteSolution.lean": {
+    "bytes": 774,
+    "sha256": "9bd9e7e8979874c2d26a31c36b08d2c3e6cbd4d75493555bfc5bf92b8407f35f"
+  },
+  "ComplexTraceForm.lean": {
+    "bytes": 3691,
+    "sha256": "da8000367ebedffe9882bb8c8fe6487d0c5c3a209728af10835ebfa5cd1f9945"
+  },
+  "ComponentVerification.lean": {
+    "bytes": 3634,
+    "sha256": "3548d8993546ba05f2863fbb048dd0da3529280d6bd83ed1cab69b7dfca1a3a6"
+  },
+  "EncodingDegrees.lean": {
+    "bytes": 4436,
+    "sha256": "e32fc7a64aa648d73c6a876a7ab4e22eeede86fc63d0f83ab49623aa51e1fd05"
+  },
+  "EncodingHomogeneity.lean": {
+    "bytes": 5484,
+    "sha256": "810e0be409a9d9be1c6ef1549780800d1ce4a0f3017c5f3b0e7f8f406a0d65cf"
+  },
+  "EndpointReduction.lean": {
+    "bytes": 5800,
+    "sha256": "11f1d1b6ca8c54979ed4754127c11cdc9378800fb4a37fe2405a20c53db559f8"
+  },
+  "Erdos1131.lean": {
+    "bytes": 10382,
+    "sha256": "383145ff3fc3dbed233fcf496882d78d87481f785fad7bca066048ed1a3319b0"
+  },
+  "Erdos1131Asymptotic/AsymptoticConclusion.lean": {
+    "bytes": 1811,
+    "sha256": "a8c24d1ad760c3c7229f3386d87d24cea91e8040c99abd4225a2514f2f8ddc94"
+  },
+  "Erdos1131Asymptotic/ChebyshevBound.lean": {
+    "bytes": 26060,
+    "sha256": "2791fd74c16bd4b447d3076d5cf55879c2246d66b80dde9dca28fd909ebd727a"
+  },
+  "Erdos1131Asymptotic/ChebyshevFamily.lean": {
+    "bytes": 7883,
+    "sha256": "5fbc1a2b619cadd502671ba112251823a4b33769ef0ea99e58798f6faaddc9ed"
+  },
+  "Erdos1131Asymptotic/ChebyshevFirstOrder.lean": {
+    "bytes": 32631,
+    "sha256": "e6c3f68867aac78ea193c9a7d3d57ccb0e7adcb025b97d9e43abe15c49fdf005"
+  },
+  "Erdos1131Asymptotic/ChebyshevGram.lean": {
+    "bytes": 11510,
+    "sha256": "41e0ad36076af4ff490671638e7e21089372d7485119c2e2738e88957b0c00a9"
+  },
+  "Erdos1131Asymptotic/ChebyshevMoment.lean": {
+    "bytes": 8439,
+    "sha256": "e92511085d4c7c674dad14a3baf7800f6ad7a8d93428a853b50e14b6a47afb0d"
+  },
+  "Erdos1131Asymptotic/ChebyshevResolvent.lean": {
+    "bytes": 5220,
+    "sha256": "fbbbcd4f14907d8529329e33d5e0b86a6586f0dd40bbcdab58cc818e73d34cae"
+  },
+  "Erdos1131Asymptotic/ChebyshevRootSums.lean": {
+    "bytes": 27990,
+    "sha256": "f430d26e399ce9b9bf14eab26fd4abf3525f90a38ba1a5b259e5306982f341db"
+  },
+  "Erdos1131Asymptotic/Definitions.lean": {
+    "bytes": 6536,
+    "sha256": "67f75604c0702cce39d84f84aaed32340be9826b6f7f6f4c5fa68c55e745d986"
+  },
+  "Erdos1131Asymptotic/DisproofBridge.lean": {
+    "bytes": 2045,
+    "sha256": "a741e3ee2347792c970577438fb071097f00d9a9303248ba2faedc5828fc0338"
+  },
+  "Erdos1131Asymptotic/FiniteComparison.lean": {
+    "bytes": 3067,
+    "sha256": "3d74da143b956e479b234d7fcbc3f229b11c2e3a820644860259a3555239e43c"
+  },
+  "Erdos1131Asymptotic/InterpolationTrace.lean": {
+    "bytes": 11756,
+    "sha256": "8f4b87f45fd3f15f374b8871d52f277f74a7be3b24dc20fde0257a41e6f2ad48"
+  },
+  "Erdos1131Asymptotic/Main.lean": {
+    "bytes": 2563,
+    "sha256": "f888abe2309807439f1fa5e1e2d9e39baa534f80ecc72a57c59a1c75c225d5f2"
+  },
+  "Erdos1131Asymptotic.lean": {
+    "bytes": 32,
+    "sha256": "daa4d24e420ed9ac4a9912737210a9f2b4bc3d07d4fea6c4294dab080620df12"
+  },
+  "Erdos1131Full.lean": {
+    "bytes": 228857,
+    "sha256": "228710b39e0797a739ba18095d42f148bc5e564e8447acfb7283f18fbd7e688e"
+  },
+  "Fekete.lean": {
+    "bytes": 6827,
+    "sha256": "a59d7aefb5fb678b518009a2689081a0233312bb5d25b84ef98dc06abe4c26d7"
+  },
+  "FeketeUpper.lean": {
+    "bytes": 10531,
+    "sha256": "4aa36470b31ebb71354023b5dd02ef91d420f19be3d0eb50c79a6e16529ae397"
+  },
+  "formalization.yaml": {
+    "bytes": 1484,
+    "sha256": "69b2482c4d0ab2fbb81f7360ad14386c5beef62d2b714376891d3f4edd560bd8"
+  },
+  "GapEncoding.lean": {
+    "bytes": 8561,
+    "sha256": "80eba700c478af3c4eb8c4c91a67b5e898ece06e5030a5447fbae5c177d30fc3"
+  },
+  "GapParametrization.lean": {
+    "bytes": 5332,
+    "sha256": "01452aad1694b24b0f1360d5655a3b9711b8626e6477b0c65c89313dd9fca176"
+  },
+  "GradedPolynomialEncoding.lean": {
+    "bytes": 4785,
+    "sha256": "eff907e81901b89a959f212a79217c33052cd91ea9a40318c00aea6fe54ca437"
+  },
+  "HermiteSignature.lean": {
+    "bytes": 1984,
+    "sha256": "c4a981864f78f85840ea6fb4910e88442ab22fd03057aaf5cca0e16cde55a52a"
+  },
+  "HomogeneousLift.lean": {
+    "bytes": 11256,
+    "sha256": "b7822ae5a13cfc7f1714fa5254be41b51e919e457056b63f6b821805b20022ed"
+  },
+  "HomogeneousLowerBound.lean": {
+    "bytes": 1786,
+    "sha256": "dd7d5fcdde74afe53d97bacf47dea5ab806da0dc1f19d2247529a93dc62e222c"
+  },
+  "InterpolationStates.lean": {
+    "bytes": 3777,
+    "sha256": "781855271341d934ff951bfc3163fffb74437eb40bd020dd827cf975522c1301"
+  },
+  "lake-manifest.json": {
+    "bytes": 3542,
+    "sha256": "68351540d4fa01472e35e7c67e75a019f15ae5e214d647843d1d09c2360387a0"
+  },
+  "lakefile.toml": {
+    "bytes": 1533,
+    "sha256": "9a4a7d41ef644974171c7ec72cc2db288f111b8a02b6ea8144a856f3217a62cd"
+  },
+  "lean-toolchain": {
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  "LICENSE": {
+    "bytes": 10131,
+    "sha256": "f96f4e984ac7c6d863bbd479a8e7a2bb864f4c296d5389d004d494b052916ca6"
+  },
+  "MinimumAttainment.lean": {
+    "bytes": 3408,
+    "sha256": "2a2af237a7f54d57e75c1e8b049a8c3257cb7f228f90aae7071db2fb25ef4763"
+  },
+  "MinimumBoundary.lean": {
+    "bytes": 2988,
+    "sha256": "928d77f28f84eeb6095add2e60d93a8f372ec46cc7813d39cc1227970df13cf9"
+  },
+  "MonomialConfluence.lean": {
+    "bytes": 3664,
+    "sha256": "96bfb96e29bd44e7a3716ff5a517fd9b605ff11093778b05952b9d6f8357e476"
+  },
+  "MonomialQuotient.lean": {
+    "bytes": 3939,
+    "sha256": "a00670ad1a6ee5e1d096297b274546db0c6ea9799620ffb5a786286aa9f68c1d"
+  },
+  "MonomialReduction.lean": {
+    "bytes": 8436,
+    "sha256": "cd6b95f0f1aa726bc7d5591337b27f8bd2ceef70a3316b29c1472920d1070b62"
+  },
+  "NodeReindexing.lean": {
+    "bytes": 3282,
+    "sha256": "cbe49245dd191e703eac7d677537b4d4173115976ce5425b5ea08e68f11c7cf0"
+  },
+  "NormalizedBasis.lean": {
+    "bytes": 4355,
+    "sha256": "9f2a4fb1900ad76076fbe7e30de193bdadd152df976175e958a8687519dd53c0"
+  },
+  "NormalizedTrace.lean": {
+    "bytes": 3071,
+    "sha256": "b5705ea156725dcb0e9fd6ea1d0b9155e7d870c178f60eceeffc75cb6d21b69f"
+  },
+  "NOTICE": {
+    "bytes": 775,
+    "sha256": "bec1163b9b2c72921f019d66742e36ae0f3603fbca7397a243906bb1bb22d13f"
+  },
+  "ORIGINAL_PROBLEM.md": {
+    "bytes": 2255,
+    "sha256": "9e92aaf4a7d5df980166e2d081bfa8136d31af9db2d5c09af3a958f9b32e1a78"
+  },
+  "OriginalThreshold.lean": {
+    "bytes": 5882,
+    "sha256": "df080aa7abe4a5f4aefcc5638556ce91964f5edbba79cb5f091f1767f1d5537a"
+  },
+  "paper/exact-minimum.pdf": {
+    "bytes": 127675,
+    "sha256": "ba51d5182e564c8539461eef5d77452c08feb966ebb673e033dcb74aa4bc5034"
+  },
+  "paper/exact-minimum.tex": {
+    "bytes": 30395,
+    "sha256": "96ce187ec81db1c936715e8942f6c4947fd26776ce57207e92aa4d6efba066fc"
+  },
+  "ParametricSystem.lean": {
+    "bytes": 2426,
+    "sha256": "a2bf92f03e65cab74c73e66892bdf0548beb2b974e336b25742b720a2d0f3c8b"
+  },
+  "ParametricWeights.lean": {
+    "bytes": 2121,
+    "sha256": "72c9372c9c9d6616f347aee30d9ef74256da358b258279d12e29aed4d92d1cd6"
+  },
+  "PolynomialDifferentiation.lean": {
+    "bytes": 7009,
+    "sha256": "5f0ee0fc81a73529b6768c5c3ebf6d42512870ab9a342f98ec648c2b9ebbfe66"
+  },
+  "PolynomialEncoding.lean": {
+    "bytes": 6345,
+    "sha256": "c3114328680084ffa822a25866df723f92c4a627780b677e804fb0e98722cf9a"
+  },
+  "PolynomialEnergy.lean": {
+    "bytes": 5888,
+    "sha256": "9704887b0031da555393c14ecd6841753046dced274ab89a020968549b4cbf71"
+  },
+  "provenance/asymptotic-adaptations.diff": {
+    "bytes": 13727,
+    "sha256": "108e5a33b9513afd4c0c21ca5158d7e30e3c888677dbad5ccc95af29ae05a469"
+  },
+  "provenance/asymptotic-sources.json": {
+    "bytes": 4326,
+    "sha256": "bcfda9c3e36a33060907e18a094007297376af75f9ab2a89f32c1e960719d5af"
+  },
+  "QuadraticContinuity.lean": {
+    "bytes": 2394,
+    "sha256": "78b10e45e28c85ee1667fe6f86ed8b6ca06c560ac9c21c1cc3ab00562b86568a"
+  },
+  "QuadraticProduct.lean": {
+    "bytes": 2852,
+    "sha256": "0b69dbd7971f697c2c6dffc6084baabeb0f739a6bf93c8974b32d79ad85f1a3f"
+  },
+  "QuadraticSurjection.lean": {
+    "bytes": 2220,
+    "sha256": "a88d3a3fe318efdff9fd6ba017eace9ebbbd8b6225a460a263e57c72048c2c1a"
+  },
+  "QuotientBaseChange.lean": {
+    "bytes": 4444,
+    "sha256": "a67d721c1f7276da7e7b95b204eb459bbb625a5fef681444cfa39d2085adb3fd"
+  },
+  "QuotientBasis.lean": {
+    "bytes": 5214,
+    "sha256": "9998a5af8b694b6fc47f25339f49cfa9ad6e77ce4cc494216de7b656c76a47c8"
+  },
+  "QuotientCoordinates.lean": {
+    "bytes": 1194,
+    "sha256": "d46727f5496bc102e47f8ab780af1115e0be3b0f69fb5612f45e8786d8af98ec"
+  },
+  "QuotientZeros.lean": {
+    "bytes": 4079,
+    "sha256": "e56745238b706969d549eca604673e0f668db42b5a9e4bf0543669d909815352"
+  },
+  "README.md": {
+    "bytes": 5090,
+    "sha256": "fb4c2fe90adb621ceee92c500de91c167a4e79353c81c53cb140e66b38eda91d"
+  },
+  "RealCharacters.lean": {
+    "bytes": 2845,
+    "sha256": "f06ecd7b53fb4d9218b3c9b1650cac37c4a75afc965b8798f761e25c6d35e216"
+  },
+  "RealTraceForm.lean": {
+    "bytes": 1314,
+    "sha256": "80a46aaa6724057bea607fc5b3821713edfe4d2b05cec40bf500f7f4ba8a2209"
+  },
+  "ReducedAlgebra.lean": {
+    "bytes": 1907,
+    "sha256": "6e14480f17bd7eb78e9e126ea55fc6de1585f8a45098a48ebd8729761ab358db"
+  },
+  "references/seanm27lol-asymptotic-proof.md": {
+    "bytes": 8609,
+    "sha256": "8501e1f8a854aa9d2653b106c2171256b8b0cf7b4cc1062cfe5ae7965f93d16c"
+  },
+  "REPRODUCING.md": {
+    "bytes": 3049,
+    "sha256": "9a710aa3891ffc3f021b352573a595481472d59a57ebbf8bc5d18e93fb704a9b"
+  },
+  "RootSelection.lean": {
+    "bytes": 5511,
+    "sha256": "e08ef0a8977a396b396015fcdacd84146eb32c7a125ecb47bd6782e665203d77"
+  },
+  "SignatureContinuity.lean": {
+    "bytes": 1740,
+    "sha256": "3c12002c07f6f3b51db8c5795753f510c387b7d9306d60fb240f11ff69a21ff2"
+  },
+  "Submission.lean": {
+    "bytes": 2703,
+    "sha256": "8d9ae3ab7f2ddece07b236c30e3acca504505eb1c201b731dd0b3f76a88c4fb8"
+  },
+  "SymmetricNullity.lean": {
+    "bytes": 3967,
+    "sha256": "8e51d801a10a084e4b2cf0c0b29186ed7439318a23779f901e618f9a63fb6a01"
+  },
+  "THIRD_PARTY.md": {
+    "bytes": 2381,
+    "sha256": "acd68203beadecd6324b63e2dda45d580ec1767733c52f1dc9d2cda5e425e0a4"
+  },
+  "tools/AxiomAudit.lean": {
+    "bytes": 1085,
+    "sha256": "8cdcb01a917093ce9e21f7df7edb200b61ee7c9d16b12f2e2a1c1070623261c3"
+  },
+  "tools/ReplayProof.lean": {
+    "bytes": 2387,
+    "sha256": "f8a189b5e3e8642797ed46f13c8e6d3df0103b5ea0fa8ffb155de7bbfc2fa73d"
+  },
+  "TraceConstruction.lean": {
+    "bytes": 5294,
+    "sha256": "62a17a92ce57b1fb9f0b01752142bc3071ddbd57661ca71458b018a7a8d32c41"
+  },
+  "TraceDegrees.lean": {
+    "bytes": 2796,
+    "sha256": "437cf42b7c23d6af7346758442797dd35eacf1ebe3a67a16137bc4f8845f805c"
+  },
+  "TraceNilpotents.lean": {
+    "bytes": 3717,
+    "sha256": "0875f648094b08ad4dd17d95d89423e78f96e2c75da5885b5133a47b4833becc"
+  },
+  "TraceProduct.lean": {
+    "bytes": 3548,
+    "sha256": "6e7ab465920462f204bd7babcbb8451774ec433280ca028ebd2a5562d9c5362e"
+  },
+  "TraceSignature.lean": {
+    "bytes": 3797,
+    "sha256": "481ad0df7ae70e4e67b8022b3a752fbe2a3856a28b65ac082b36f6c1a13e7eee"
+  },
+  "VandermondeMoment.lean": {
+    "bytes": 3757,
+    "sha256": "4df322f078325a81e5a1dbea03d0bd5e408c17b5e4aa82befbaced7abadacb7b"
+  },
+  "WeightedReduction.lean": {
+    "bytes": 3426,
+    "sha256": "269b6b4c66c8d95b032db73974433751f06eeefab6925f89e12cf94747d932dd"
+  }
+}

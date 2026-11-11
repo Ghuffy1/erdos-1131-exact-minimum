@@ -1,0 +1,24 @@
+import Challenge
+
+set_option pp.universes false
+
+#check @Erdos1131.erdos1131_solution
+#print axioms Erdos1131.erdos1131_solution
+#print axioms Erdos1131.algebraicMinimum_eq_minimum
+#print axioms Erdos1131.minimum_attained
+#print axioms Erdos1131.boundaryPolynomial_degree
+#print axioms Erdos1131Asymptotic.not_erdos_1131
+#print axioms Erdos1131Submission.energy_eq_reference_functional
+#print axioms Erdos1131Submission.attainable_values_eq_reference
+#print axioms Erdos1131Submission.minimum_eq_reference
+#print axioms Erdos1131Submission.shifted_scaledDefect_eq_reference
+#print axioms Erdos1131Submission.asymptotic_coefficient_one_false
+#check @Erdos1131Submission.complete_problem
+#print axioms Erdos1131Submission.complete_problem
+#print axioms OriginalProblem1131.admissible_eq
+#print axioms OriginalProblem1131.integral_eq
+#print axioms OriginalProblem1131.infimum_eq
+#print axioms OriginalProblem1131.exact_original
+#print axioms OriginalProblem1131.asymptotic_original
+#check @OriginalProblem1131.full_original_problem
+#print axioms OriginalProblem1131.full_original_problem

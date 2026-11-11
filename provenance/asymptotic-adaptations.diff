@@ -1,0 +1,454 @@
+--- upstream/Erdos1131/AsymptoticConclusion.lean
++++ Erdos1131Asymptotic/AsymptoticConclusion.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.DisproofBridge
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.DisproofBridge
+ 
+ /-!
+ # The explicit finite estimate implies the asymptotic contradiction
+@@ -8,7 +16,7 @@
+ functional of an admissible comparison family.
+ -/
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ theorem scaled_comparison_of_functional_le
+     {N : ℕ} (hN : 24780 ≤ N) (x : Fin (N + 1) ↪ ℝ)
+@@ -39,4 +47,4 @@
+     _ ≤ ((N + 1 : ℕ) : ℝ) * (2 - functional x) := by
+       gcongr
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/ChebyshevBound.lean
++++ Erdos1131Asymptotic/ChebyshevBound.lean
+@@ -1,4 +1,15 @@
+-import Mathlib
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Mathlib.LinearAlgebra.Matrix.Trace
++import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
++import Mathlib.Data.Nat.Dist
++import Mathlib.Tactic
+ 
+ /-!
+ # The finite Chebyshev comparison estimate
+@@ -15,7 +26,7 @@
+ 
+ open scoped BigOperators
+ 
+-namespace Erdos1131.ChebyshevBound
++namespace Erdos1131Asymptotic.ChebyshevBound
+ 
+ noncomputable section
+ 
+@@ -723,4 +734,4 @@
+ 
+ end
+ 
+-end Erdos1131.ChebyshevBound
++end Erdos1131Asymptotic.ChebyshevBound
+--- upstream/Erdos1131/ChebyshevFamily.lean
++++ Erdos1131Asymptotic/ChebyshevFamily.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.Definitions
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.Definitions
+ import Mathlib.Analysis.SpecialFunctions.Trigonometric.Chebyshev.RootsExtrema
+ import Mathlib.RingTheory.Polynomial.Vieta
+ import Mathlib.RingTheory.MvPolynomial.Symmetric.NewtonIdentities
+@@ -18,7 +26,7 @@
+ open scoped BigOperators Interval
+ open Set
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ open Polynomial Polynomial.Chebyshev Real
+ 
+@@ -206,4 +214,4 @@
+     (chebQ n).eval (chebNodes n hn k) = 0 :=
+   chebNode_isRoot hn k
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/ChebyshevFirstOrder.lean
++++ Erdos1131Asymptotic/ChebyshevFirstOrder.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.ChebyshevBound
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.ChebyshevBound
+ 
+ /-!
+ # A first-order lower bound for the Chebyshev trace
+@@ -10,7 +18,7 @@
+ 
+ open scoped BigOperators Matrix
+ 
+-namespace Erdos1131.ChebyshevFirstOrder
++namespace Erdos1131Asymptotic.ChebyshevFirstOrder
+ 
+ open ChebyshevBound
+ 
+@@ -224,7 +232,7 @@
+     (∑ j ∈ sameParityOffDiag N i,
+       q ^ (i.val.dist j.val / 2)) ≤ (2 : ℝ) / 5 := by
+   have hi : i ∈ sameParityIndices N i := by
+-    simp [sameParityIndices, SameParity]
++    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, rfl⟩
+   have hsplit := Finset.sum_erase_add
+     (sameParityIndices N i)
+     (fun j ↦ q ^ (i.val.dist j.val / 2)) hi
+@@ -845,7 +853,7 @@
+       traceTerm N i i +
+         ∑ j ∈ sameParityOffDiag N i, traceTerm N i j := by
+   have hi : i ∈ sameParityIndices N i := by
+-    simp [sameParityIndices, SameParity]
++    exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, rfl⟩
+   have hrestrict :
+       (∑ j ∈ sameParityIndices N i, traceTerm N i j) =
+         ∑ j : Fin (N + 1), traceTerm N i j := by
+@@ -887,4 +895,4 @@
+ 
+ end
+ 
+-end Erdos1131.ChebyshevFirstOrder
++end Erdos1131Asymptotic.ChebyshevFirstOrder
+--- upstream/Erdos1131/ChebyshevGram.lean
++++ Erdos1131Asymptotic/ChebyshevGram.lean
+@@ -1,6 +1,14 @@
+-import Erdos1131.ChebyshevRootSums
+-import Erdos1131.InterpolationTrace
+-import Erdos1131.ChebyshevResolvent
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.ChebyshevRootSums
++import Erdos1131Asymptotic.InterpolationTrace
++import Erdos1131Asymptotic.ChebyshevResolvent
+ 
+ /-!
+ # The discrete Gram matrix of the Chebyshev comparison nodes
+@@ -12,7 +20,7 @@
+ 
+ open scoped BigOperators Matrix
+ 
+-namespace Erdos1131.ChebyshevGram
++namespace Erdos1131Asymptotic.ChebyshevGram
+ 
+ open Polynomial Polynomial.Chebyshev
+ open ChebyshevBound ChebyshevResolvent InterpolationTrace
+@@ -284,4 +292,4 @@
+ 
+ end
+ 
+-end Erdos1131.ChebyshevGram
++end Erdos1131Asymptotic.ChebyshevGram
+--- upstream/Erdos1131/ChebyshevMoment.lean
++++ Erdos1131Asymptotic/ChebyshevMoment.lean
+@@ -1,4 +1,15 @@
+-import Mathlib
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Mathlib.Analysis.SpecialFunctions.Trigonometric.Chebyshev.Basic
++import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
++import Mathlib.Analysis.Calculus.Deriv.Polynomial
++import Mathlib.Tactic
+ 
+ /-!
+ # Unweighted moments of Chebyshev polynomials
+@@ -11,7 +22,7 @@
+ open scoped Interval
+ open Polynomial
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ namespace ChebyshevMoment
+ 
+@@ -204,4 +215,4 @@
+ 
+ end ChebyshevMoment
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/ChebyshevResolvent.lean
++++ Erdos1131Asymptotic/ChebyshevResolvent.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.ChebyshevBound
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.ChebyshevBound
+ 
+ /-!
+ # Exact resolvent algebra for the Chebyshev comparison matrix
+@@ -15,7 +23,7 @@
+ 
+ open scoped BigOperators
+ 
+-namespace Erdos1131.ChebyshevResolvent
++namespace Erdos1131Asymptotic.ChebyshevResolvent
+ 
+ open ChebyshevBound
+ 
+@@ -147,4 +155,4 @@
+ 
+ end
+ 
+-end Erdos1131.ChebyshevResolvent
++end Erdos1131Asymptotic.ChebyshevResolvent
+--- upstream/Erdos1131/ChebyshevRootSums.lean
++++ Erdos1131Asymptotic/ChebyshevRootSums.lean
+@@ -1,4 +1,13 @@
+-import Erdos1131.ChebyshevFamily
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.ChebyshevFamily
++import Mathlib.Analysis.Complex.Polynomial.Basic
+ 
+ /-!
+ # Root sums for the explicit Chebyshev comparison nodes
+@@ -9,7 +18,7 @@
+ 
+ open scoped BigOperators
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ open Polynomial Polynomial.Chebyshev
+ 
+@@ -683,4 +692,4 @@
+     _ = 2 * ((1 / 6 : ℂ) ^ (n - 1) +
+           ((n - 1 : ℕ) : ℂ) / 6) := by ring
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/Definitions.lean
++++ Erdos1131Asymptotic/Definitions.lean
+@@ -1,4 +1,14 @@
+-import Mathlib
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Mathlib.LinearAlgebra.Lagrange
++import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
++import Mathlib.Tactic
+ 
+ /-!
+ # Definitions and elementary facts for Erdős Problem 1131
+@@ -11,7 +21,7 @@
+ open scoped BigOperators Interval
+ open Filter Set
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ def Admissible {n : ℕ} (x : Fin n ↪ ℝ) : Prop :=
+   ∀ k, x k ∈ Set.Icc (-1 : ℝ) 1
+@@ -170,4 +180,4 @@
+         norm_num⟩
+   rw [M, hvalues, csInf_singleton]
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/DisproofBridge.lean
++++ Erdos1131Asymptotic/DisproofBridge.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.Definitions
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.Definitions
+ 
+ /-!
+ # From an explicit comparison family to the disproof
+@@ -10,7 +18,7 @@
+ 
+ open Filter Set
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ theorem scaledDefect_ge_of_comparison
+     {N : ℕ} (x : Fin (N + 1) ↪ ℝ) (hx : Admissible x)
+@@ -48,4 +56,4 @@
+   norm_num at hlower hNupper
+   linarith
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/FiniteComparison.lean
++++ Erdos1131Asymptotic/FiniteComparison.lean
+@@ -1,4 +1,12 @@
+-import Erdos1131.ChebyshevResolvent
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.ChebyshevResolvent
+ 
+ /-!
+ # The finite comparison inequality
+@@ -8,7 +16,7 @@
+ identity with the three scalar estimates used in the final disproof.
+ -/
+ 
+-namespace Erdos1131.FiniteComparison
++namespace Erdos1131Asymptotic.FiniteComparison
+ 
+ open ChebyshevBound ChebyshevResolvent
+ 
+@@ -71,4 +79,4 @@
+ 
+ end
+ 
+-end Erdos1131.FiniteComparison
++end Erdos1131Asymptotic.FiniteComparison
+--- upstream/Erdos1131/InterpolationTrace.lean
++++ Erdos1131Asymptotic/InterpolationTrace.lean
+@@ -1,6 +1,14 @@
+-import Erdos1131.Definitions
+-import Erdos1131.ChebyshevMoment
+-import Erdos1131.ChebyshevBound
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.Definitions
++import Erdos1131Asymptotic.ChebyshevMoment
++import Erdos1131Asymptotic.ChebyshevBound
+ 
+ /-!
+ # Interpolation in the Chebyshev basis
+@@ -12,7 +20,7 @@
+ open scoped BigOperators Interval Matrix
+ open Polynomial
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ namespace InterpolationTrace
+ 
+@@ -86,7 +94,8 @@
+       · exact degree_C_le
+       · simp
+     _ < (n : WithBot ℕ) := by
+-      simpa only [zero_add] using (WithBot.coe_lt_coe.mpr j.isLt)
++      rw [zero_add]
++      exact_mod_cast j.isLt
+ 
+ /-- The `k`th Lagrange polynomial has as its Chebyshev coefficients the
+ `k`th column of the inverse evaluation matrix. -/
+@@ -312,4 +321,4 @@
+ 
+ end InterpolationTrace
+ 
+-end Erdos1131
++end Erdos1131Asymptotic
+--- upstream/Erdos1131/Main.lean
++++ Erdos1131Asymptotic/Main.lean
+@@ -1,7 +1,15 @@
+-import Erdos1131.AsymptoticConclusion
+-import Erdos1131.ChebyshevFirstOrder
+-import Erdos1131.ChebyshevGram
+-import Erdos1131.FiniteComparison
++/-
++Adapted from seanm27lol/erdos-1131-lean, commit
++31574acf09ae50430c08da92288800fe7d26c7fd, under Apache-2.0.
++The mathematical asymptotic result and original formalization are credited to
++that source. This copy uses a separate namespace and the repository's pinned
++toolchain. See THIRD_PARTY.md for the complete provenance and adaptation record.
++-/
++
++import Erdos1131Asymptotic.AsymptoticConclusion
++import Erdos1131Asymptotic.ChebyshevFirstOrder
++import Erdos1131Asymptotic.ChebyshevGram
++import Erdos1131Asymptotic.FiniteComparison
+ 
+ /-!
+ # Erdős Problem 1131
+@@ -15,7 +23,7 @@
+ cannot converge to `1`.
+ -/
+ 
+-namespace Erdos1131
++namespace Erdos1131Asymptotic
+ 
+ open ChebyshevBound ChebyshevFirstOrder ChebyshevGram FiniteComparison
+ open Filter
+@@ -65,4 +73,4 @@
+ 
+ end
+ 
+-end Erdos1131
++end Erdos1131Asymptotic

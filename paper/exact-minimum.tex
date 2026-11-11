@@ -1,0 +1,778 @@
+\documentclass[11pt,leqno]{amsart}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\title[The minimum squared Lagrange interpolation integral]{An exact algebraic construction for\newline Erd\H{o}s's interpolation minimum}
+\author[W. Howe]{Will Howe}
+\author[G. Huffman]{Grant Huffman}
+\author[J. Kohlmeyer]{Jensen Kohlmeyer}
+\author[L. Kruer]{Liam Kruer}
+\thanks{\raggedright\textit{E-mail addresses.}
+\mbox{\href{mailto:howew@purdue.edu}{\texttt{howew@purdue.edu}} (W.~Howe)},
+\mbox{\href{mailto:huffma97@purdue.edu}{\texttt{huffma97@purdue.edu}} (G.~Huffman)},
+\mbox{\href{mailto:jenwin@purdue.edu}{\texttt{jenwin@purdue.edu}} (J.~Kohlmeyer)},
+\mbox{\href{mailto:kruerl@purdue.edu}{\texttt{kruerl@purdue.edu}} (L.~Kruer)}.}
+\date{November 11, 2026}
+\subjclass[2020]{Primary 41A05; Secondary 13P10, 14P10, 15A63}
+\keywords{Lagrange interpolation, extremal nodes, exact algebraic values,
+Hermite matrices, trace forms, real root counting}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\N}{\mathbb N}
+\newcommand{\B}{\mathcal B}
+\newcommand{\Lz}{\mathcal L_z}
+\newcommand{\NF}{\operatorname{NF}}
+\newcommand{\sig}{\operatorname{sig}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\abs}[1]{\lvert #1\rvert}
+\newcommand{\norm}[1]{\lVert #1\rVert}
+
+\hypersetup{
+ pdftitle={An exact algebraic construction for Erdos's interpolation minimum},
+ pdfauthor={Will Howe, Grant Huffman, Jensen Kohlmeyer, Liam Kruer},
+ pdfsubject={An exact algebraic value rule for the minimum squared Lagrange interpolation integral},
+ pdfkeywords={Lagrange interpolation, Erdos problem 1131, Hermite matrix, trace form}
+}
+
+\begin{document}
+\begin{abstract}
+For distinct nodes in $[-1,1]$, consider the integral of the sum of the
+squares of their Lagrange cardinal polynomials. We give a finite algebraic
+construction of its minimum for every positive number of nodes. For
+$n\geq2$, put $k=n-1$ and $d=2n(n-1)$. A rational symmetric polynomial
+matrix of order $(d+1)^k$ determines a nonzero rational polynomial of degree
+at most $kd(d+1)^k$. The minimum is a specified real root of this polynomial;
+its index is obtained from signatures at rational sample points. The proof
+establishes attainment and endpoint inclusion, expresses the objective in
+squared gap coordinates, and converts its threshold into a real critical
+point count. A fixed monomial basis and the Hermite trace form give the
+required count at every parameter, including parameters with multiple
+critical points. All steps of the value rule use rational polynomial
+arithmetic, univariate real root isolation, and rational symmetric elimination.
+\end{abstract}
+\maketitle
+
+\section{Introduction and main result}
+
+Let $X=(x_1,\ldots,x_n)$ consist of distinct real nodes in $[-1,1]$.
+Its Lagrange cardinal polynomials are
+\begin{equation}\label{eq:cardinals}
+ \ell_i^X(x)=\prod_{j\ne i}\frac{x-x_j}{x_i-x_j},
+ \qquad 1\leq i\leq n.
+\end{equation}
+We use the empty product convention when $n=1$. Define
+\begin{equation}\label{eq:objective}
+ I(X)=\int_{-1}^{1}\sum_{i=1}^n\ell_i^X(x)^2\,dx,
+ \qquad
+ m_n=\inf_{\substack{x_i\in[-1,1]\\x_i\ne x_j\ (i\ne j)}}I(X).
+\end{equation}
+The integral is taken with respect to ordinary Lebesgue measure.
+The value of $I(X)$ is invariant under a permutation of the nodes, so
+ordered nodes may be used throughout.
+
+This minimization is among the classical interpolation problems of
+Erd\H{o}s; see Erd\H{o}s, Szabados, Varma, and V\'ertesi~\cite{ESVV}.
+Brutman and Toledano~\cite{BT} studied the finite minima numerically and
+their asymptotic behavior. The problem is also recorded as Erd\H{o}s
+Problem~1131~\cite{Bloom}. Our result concerns the exact finite-$n$ minimum.
+
+Algebraicity and an effective value procedure follow from general real
+algebraic methods~\cite{BPR}. Indeed, after clearing the positive squared
+Vandermonde denominator on the ordered node region, the assertion that
+$t$ is an attained minimum is a first-order formula over $\Q$.
+Quantifier elimination then describes the singleton $\{m_n\}$ by
+univariate polynomial sign conditions. The construction below gives
+explicit polynomial and matrix data for this particular objective.
+It uses the classical Hermite trace principle and its parametric form;
+see~\cite{BPR,LeSafey}. We include the trace argument needed here, including
+the treatment of multiplicities.
+
+For a real symmetric matrix $H$, write
+\[
+ \sig H=n_+(H)-n_-(H),
+\]
+where $n_+(H)$ and $n_-(H)$ count positive and negative eigenvalues with
+multiplicity. Zero eigenvalues contribute zero.
+
+\begin{theorem}\label{thm:main}
+For every positive integer $n$, the infimum in~\eqref{eq:objective} is
+attained. For $n=1$ it equals $2$. For $n\geq2$, every minimizing node set
+contains both endpoints, and
+\begin{equation}\label{eq:range}
+ \frac{2}{n}\leq m_n<2.
+\end{equation}
+Fix $n\geq2$ and put
+\[
+ k=n-1,\qquad d=2n(n-1),\qquad M=(d+1)^k.
+\]
+There are an explicitly defined symmetric polynomial matrix and a
+nonzero polynomial satisfying
+\[
+ H_n(t)\in\operatorname{Sym}_{M}(\Q[t]),\qquad
+ 0\ne R_n(t)\in\Q[t],\qquad \deg R_n\leq kdM,
+\]
+constructed in Sections~\ref{sec:quotient} and~\ref{sec:selection}, with
+the following property. Let $r_1<\cdots<r_s$ be the distinct real roots
+of $R_n$ in $(0,2)$, put $r_{s+1}=2$, and choose rational numbers
+$\rho_j\in(r_j,r_{j+1})$ for $1\leq j\leq s$. Then $s\geq1$ and
+\begin{equation}\label{eq:main-rule}
+ \boxed{\displaystyle
+ m_n=r_{1+c_n},\qquad
+ c_n=\#\{j:1\leq j\leq s,\ \sig H_n(\rho_j)=1\}.}
+\end{equation}
+The construction and the rule depend only on $n$ and use finitely many
+exact rational operations and univariate real root isolations.
+\end{theorem}
+
+The proof proceeds by an endpoint reduction, a homogeneous polynomial
+encoding, and a coercive perturbation whose real critical points detect
+the minimum. A fixed quotient basis makes the trace matrix valid at
+every real parameter. The last step identifies the correct root by
+counting signatures on the intervals between consecutive roots.
+
+\section{Attainment and endpoint reduction}\label{sec:endpoints}
+
+Write $S_X(x)=\sum_i\ell_i^X(x)^2$.
+
+\begin{lemma}\label{lem:attainment}
+The minimum $m_n$ is attained, and $m_n\geq2/n$.
+\end{lemma}
+
+\begin{proof}
+Choose a basis $p_0,\ldots,p_{n-1}$ of the polynomials of degree at most
+$n-1$ that is orthonormal for the inner product
+$\langle f,g\rangle=\int_{-1}^1fg$. Let
+$V_{ij}=p_{j-1}(x_i)$. Distinctness of the nodes makes $V$ invertible.
+The coefficient vector of $\ell_i^X$ in this basis is $V^{-1}e_i$.
+Consequently,
+\begin{equation}\label{eq:gram}
+ I(X)=\norm{V^{-1}}_F^2
+      =\tr\bigl((V^{\mathsf T}V)^{-1}\bigr).
+\end{equation}
+Here $\norm{\cdot}_F$ is the Frobenius norm.
+
+Suppose a sequence of ordered configurations tends to a collision in
+the closed ordered region
+$-1\leq x_1\leq\cdots\leq x_n\leq1$. The limiting evaluation matrix has
+two equal rows, so its smallest singular value tends to zero. Since
+\[
+ I(X)\geq\sigma_{\min}(V)^{-2},
+\]
+the objective tends to infinity along such a sequence.
+A minimizing sequence has bounded objective by comparison with any
+fixed distinct-node configuration. Compactness of the closed ordered
+region therefore gives a convergent subsequence with a distinct-node
+limit. Continuity of~\eqref{eq:gram} at that limit proves attainment.
+For $n=1$ the same conclusion follows directly from $\ell_1^X=1$.
+
+The interpolation identity $\sum_i\ell_i^X(x)=1$ and the Cauchy--Schwarz
+inequality give $S_X(x)\geq1/n$. Integration proves the lower bound.
+\end{proof}
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:strict-upper}
+For every $n\geq2$, there is a node configuration with $I(X)<2$.
+\end{lemma}
+
+\begin{proof}
+Maximize the Vandermonde product
+\[
+ \Delta(X)=\prod_{a<b}(x_b-x_a)
+\]
+on the closed ordered node region. The maximum is positive, hence the
+maximizing nodes are distinct. Moving the leftmost node to $-1$ strictly
+increases the product unless it is already there. The corresponding
+argument at the right gives $x_n=1$.
+
+For every interior maximizing node, logarithmic differentiation yields
+\begin{equation}\label{eq:fekete-derivative}
+ 0=\sum_{j\ne i}\frac{1}{x_i-x_j}=(\ell_i^X)'(x_i).
+\end{equation}
+The polynomial $S_X$ equals $1$ at each node. At an interior node,
+\[
+ S_X'(x_i)=2\sum_j\ell_j^X(x_i)(\ell_j^X)'(x_i)
+         =2(\ell_i^X)'(x_i)=0.
+\]
+Moreover, $S_X$ has degree exactly $2n-2$, since its leading coefficient
+is a sum of positive squares. Counting the endpoint zeros and the double
+interior zeros of $1-S_X$ now gives
+\begin{equation}\label{eq:fekete-factor}
+ 1-S_X(x)=c(1-x^2)\prod_{i=2}^{n-1}(x-x_i)^2,\qquad c>0.
+\end{equation}
+The sign of $c$ follows from the leading coefficient. The right-hand
+side is nonnegative on $[-1,1]$ and is positive except at finitely many
+points. Thus $I(X)<2$.
+\end{proof}
+
+\begin{proposition}\label{prop:endpoints}
+Every minimizing node set with $n\geq2$ contains $-1$ and $1$.
+\end{proposition}
+
+\begin{proof}
+Let $X$ be a minimizing configuration with hull $[a,b]$, and put
+$L=b-a>0$. For $x<a$, every factor of
+\[
+ \ell_1^X(x)=\prod_{j>1}\frac{x-x_j}{a-x_j}
+\]
+is greater than one. Thus $S_X(x)>1$ on $[-1,a)$. The same argument with
+$\ell_n^X$ gives $S_X(x)>1$ on $(b,1]$.
+
+Suppose $L<2$, and write
+\[
+ A=\int_a^b S_X(x)\,dx,\qquad
+ B=\int_{[-1,1]\setminus[a,b]}S_X(x)\,dx.
+\]
+Then $B>2-L$. Lemma~\ref{lem:strict-upper} gives $A+B=m_n<2$, so $A<L$.
+The affine map from $[a,b]$ onto $[-1,1]$ carries $X$ to an admissible
+configuration $Y$. Its cardinal polynomials transform by composition,
+and change of variables gives $I(Y)=2A/L$. Consequently,
+\[
+ I(X)-I(Y)=B-\frac{2-L}{L}A
+          >(2-L)\left(1-\frac{A}{L}\right)>0,
+\]
+contradicting minimality. Hence $L=2$, which forces $a=-1$ and $b=1$.
+\end{proof}
+
+The affine hull argument also occurs in the exact four-node analysis
+of White~\cite{White}. Proposition~\ref{prop:endpoints} gives the
+reduction for every $n\geq2$.
+
+\section{A rational homogeneous encoding}\label{sec:encoding}
+
+Fix $n\geq2$, and retain $k=n-1$ and $d=2n(n-1)$. For
+$u=(u_1,\ldots,u_k)$ define
+\begin{equation}\label{eq:gaps}
+ g_a=u_a^2,\qquad T=\sum_{a=1}^k g_a,\qquad
+ Y_i=-T+2\sum_{a<i}g_a\quad(1\leq i\leq n).
+\end{equation}
+In particular, $Y_1=-T$, $Y_n=T$, and $Y_{i+1}-Y_i=2u_i^2$.
+For an $n$-tuple $y$, let $y^{(i,w)}$ denote the tuple obtained by
+replacing its $i$th entry by $w$.
+
+Define the $\Q[u]$-linear functional $\Lz$ on $\Q[u,z]$ by
+\begin{equation}\label{eq:moment-functional}
+ \Lz(z^j)=
+ \begin{cases}
+  2/(j+1),&j\text{ even},\\
+  0,&j\text{ odd}.
+ \end{cases}
+\end{equation}
+Thus $\Lz$ is integration in $z$ over $[-1,1]$. Put
+\begin{equation}\label{eq:ND}
+ D(u)=\Delta(Y)^2,\qquad
+ N(u)=\sum_{i=1}^n\Lz\!\left(\Delta\bigl(Y^{(i,Tz)}\bigr)^2\right).
+\end{equation}
+These are rational homogeneous forms of degree $d$. Indeed, every
+entry of $Y$ and the replacement $Tz$ has $u$-degree two, and the
+Vandermonde has degree $n(n-1)/2$ in its entries.
+
+\begin{lemma}\label{lem:encoding}
+For real $u$ with every coordinate nonzero,
+\begin{equation}\label{eq:ratio}
+ \frac{N(u)}{D(u)}=I(Y_1/T,\ldots,Y_n/T).
+\end{equation}
+Every ordered configuration with endpoints $-1$ and $1$ arises in
+this way. For every real $u$, $D(u)\geq0$ and $N(u)\geq0$, and
+$D(u)=0$ precisely when some $u_a=0$.
+\end{lemma}
+
+\begin{proof}
+If all coordinates are nonzero, then $T>0$ and~\eqref{eq:gaps} gives
+strictly increasing normalized nodes with the required endpoints.
+For any distinct-node tuple $x$, the Vandermonde replacement identity is
+\[
+ \ell_i^x(z)=\frac{\Delta(x^{(i,z)})}{\Delta(x)}.
+\]
+Scaling all entries by $T$ shows that this ratio for $x=Y/T$ equals
+$\Delta(Y^{(i,Tz)})/\Delta(Y)$. Squaring, summing, and integrating gives
+\eqref{eq:ratio}.
+
+Conversely, for ordered nodes with these endpoints choose
+\[
+ u_a=\sqrt{\frac{x_{a+1}-x_a}{2}}.
+\]
+Then $T=1$ and $Y_i=x_i$.
+Finally, $D$ is a square, and its zero set is determined by the
+successive differences $2u_a^2$. Each summand defining $N$ is the
+integral of a real square, which proves its nonnegativity even when
+several gaps vanish.
+\end{proof}
+
+For a real parameter $t$, define
+\begin{equation}\label{eq:P}
+ P_t(u)=N(u)-tD(u).
+\end{equation}
+
+\begin{proposition}\label{prop:threshold}
+For every real $t$,
+\begin{equation}\label{eq:nonnegative-threshold}
+ P_t(u)\geq0\text{ for every }u\in\R^k
+ \quad\Longleftrightarrow\quad t\leq m_n.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+If $t\leq m_n$ and $D(u)>0$, Lemma~\ref{lem:encoding} gives
+$P_t(u)=D(u)(I(Y/T)-t)\geq0$. At every remaining real point,
+$D(u)=0$ and $P_t(u)=N(u)\geq0$.
+
+Conversely, Lemma~\ref{lem:attainment} and
+Proposition~\ref{prop:endpoints} provide a minimizing configuration
+with both endpoints. Apply the converse parametrization in
+Lemma~\ref{lem:encoding}. Its denominator is positive, so
+$P_t(u)\geq0$ implies $m_n\geq t$.
+\end{proof}
+
+\section{Detecting the threshold by critical points}\label{sec:critical}
+
+Set
+\begin{equation}\label{eq:Q}
+ Q_t(u)=P_t(u)+\sum_{a=1}^k u_a^{d+2}.
+\end{equation}
+Since $d$ is even, the added form is strictly positive away from the origin.
+
+\begin{proposition}\label{prop:critical}
+The polynomial $Q_t$ is coercive for every real $t$, and
+\begin{equation}\label{eq:critical-threshold}
+ \{u\in\R^k:\nabla Q_t(u)=0\}=\{0\}
+ \quad\Longleftrightarrow\quad t\leq m_n.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+On the unit sphere, $\sum_a u_a^{d+2}$ has a positive minimum, while
+$\abs{P_t(u)}$ has a finite maximum. Homogeneity therefore gives constants
+$c>0$ and $C_t\geq0$ such that
+\[
+ Q_t(u)\geq c\norm{u}^{d+2}-C_t\norm{u}^{d}.
+\]
+This proves coercivity. In particular, $Q_t$ attains a global minimum.
+The origin is a critical point because $d\geq4$.
+
+If $t>m_n$, Proposition~\ref{prop:threshold} gives $v$ with $P_t(v)<0$.
+For sufficiently small $s>0$,
+\[
+ Q_t(sv)=s^d\left(P_t(v)+s^2\sum_a v_a^{d+2}\right)<0.
+\]
+A global minimizer of $Q_t$ is then a nonzero real critical point.
+
+Conversely, at a nonzero real critical point $v$, Euler's identity gives
+\begin{equation}\label{eq:euler}
+ 0=v\cdot\nabla Q_t(v)
+   =dP_t(v)+(d+2)\sum_a v_a^{d+2}.
+\end{equation}
+The last sum is positive, so $P_t(v)<0$. By
+Proposition~\ref{prop:threshold}, this implies $t>m_n$.
+\end{proof}
+
+\begin{remark}
+At a nonzero real critical point, all gap coordinates are nonzero.
+Indeed, $P_t(v)<0$ is incompatible with the nonnegativity of $N$ on
+$D=0$. Thus the critical-point threshold also respects every collision
+face of the node region.
+\end{remark}
+
+\section{A fixed quotient basis and its trace matrix}\label{sec:quotient}
+
+In the coefficient ring $\Q[t]$, write $P(u,t)=N(u)-tD(u)$ and set
+\begin{equation}\label{eq:relations}
+ h_i(u,t)=-\frac{1}{d+2}\frac{\partial P}{\partial u_i}(u,t),
+ \qquad f_i(u,t)=u_i^{d+1}-h_i(u,t).
+\end{equation}
+Thus $f_i=(d+2)^{-1}\partial Q_t/\partial u_i$.
+Each $h_i$ is homogeneous of $u$-degree $d-1$ and has coefficients
+affine in $t$. For a multi-index, write $\abs{\alpha}=\sum_i\alpha_i$.
+Fix the lexicographic order on the set
+\begin{equation}\label{eq:basis}
+ \B=\{u^\alpha:\alpha\in\{0,1,\ldots,d\}^k\},
+ \qquad \abs{\B}=M=(d+1)^k.
+\end{equation}
+The reduction rule is
+\begin{equation}\label{eq:rewrite}
+ u_i^{d+1}\longmapsto h_i(u,t).
+\end{equation}
+
+\begin{lemma}\label{lem:basis}
+Reduction by~\eqref{eq:rewrite} terminates and gives a unique normal form
+in the span of $\B$. The residue classes of $\B$ form a basis of
+\begin{equation}\label{eq:quotient}
+ \mathcal A=\Q[t,u_1,\ldots,u_k]/(f_1,\ldots,f_k)
+\end{equation}
+as a $\Q[t]$-module. For every real $\tau$, the same monomials form a
+basis of
+\[
+ \mathcal A_\tau=\R[u_1,\ldots,u_k]/(f_1(u,\tau),\ldots,f_k(u,\tau)),
+\]
+and normal forms commute with specialization $t=\tau$.
+\end{lemma}
+
+\begin{proof}
+Every replacement reduces total $u$-degree by two, so reduction
+terminates. We prove uniqueness by induction on the total degree
+of a monomial. If two possible first replacements use the same index,
+their results agree. If they use distinct indices $i$ and $j$, write the
+monomial as $u_i^{d+1}u_j^{d+1}v$. The two replacements give
+$h_i u_j^{d+1}v$ and $u_i^{d+1}h_jv$. In the first expression replace
+the displayed $u_j^{d+1}$ factor, and in the second replace the displayed
+$u_i^{d+1}$ factor. Both paths reach $h_i h_jv$.
+Every intermediate monomial has smaller degree than the original one.
+The induction hypothesis makes all subsequent normal forms equal.
+Linearity extends the conclusion to polynomials.
+
+Let $\NF$ denote the resulting $\Q[t]$-linear normal-form map.
+For a monomial $v$, the defining replacement shows
+$\NF(vf_i)=0$. Hence $\NF$ annihilates the ideal $(f_1,\ldots,f_k)$.
+Each reduction changes a polynomial by an element of this ideal, so
+$p-\NF(p)$ belongs to the ideal for every $p$. These two facts show
+that $\B$ spans the quotient and that a linear combination of $\B$
+belonging to the ideal must be zero.
+
+This proof works over $\R$ after any specialization. Moreover, the
+reduction uses only addition and multiplication of coefficients and
+the fixed rational factor $(d+2)^{-1}$. Specialization therefore commutes
+with the entire reduction.
+\end{proof}
+
+For $g\in\Q[t,u]$, let $M_g(t)$ be the matrix of multiplication by $g$
+in the ordered basis $\B$. Its column indexed by $u^\beta$ consists of
+the coefficients of $\NF(gu^\beta)$. Define
+\begin{equation}\label{eq:H}
+ H_n(t)_{\alpha,\beta}
+ =\tr\bigl(M_{u^{\alpha+\beta}}(t)\bigr),
+ \qquad u^\alpha,u^\beta\in\B.
+\end{equation}
+This is a symmetric matrix over $\Q[t]$. Lemma~\ref{lem:basis} identifies
+$H_n(\tau)$ with the trace-form matrix of $\mathcal A_\tau$ for every
+real $\tau$.
+
+\section{The real trace identity, including multiplicities}\label{sec:trace}
+
+We give the finite-dimensional trace argument to account explicitly for
+multiple zeros. For a finite-dimensional real algebra $A$, the trace
+form is the symmetric bilinear form
+\[
+ (a,b)\longmapsto\tr(L_{ab}),
+\]
+where $L_c$ denotes multiplication by $c$ on $A$.
+
+\begin{proposition}[Hermite trace identity]\label{prop:hermite}
+Let $A=\R[u_1,\ldots,u_k]/J$ be a nonzero finite-dimensional algebra.
+The signature of its trace form is the number of distinct real common
+zeros of $J$.
+\end{proposition}
+
+\begin{proof}
+Let $A_\C=A\otimes_\R\C$. The multiplication operators on $A_\C$
+commute. They are simultaneously upper triangular in a suitable basis.
+For completeness, a finite commuting family over $\C$ has a common
+eigenvector: restrict the family to an eigenspace of one member and
+continue, decreasing dimension whenever necessary. Its common invariant
+line gives a commuting family on the quotient. Induction on dimension
+then gives simultaneous upper triangularization. Applying this to the
+multiplication operators of a vector-space basis of $A_\C$ suffices.
+
+Every diagonal position defines a unital $\C$-algebra homomorphism
+$\chi:A_\C\to\C$, since diagonal entries add and multiply under upper
+triangular matrix operations. The values $\chi(u_i)$ give a common zero
+of $J$. Let $Z$ be the finite set of zeros obtained in this way, and
+let $m_\zeta$ be the number of diagonal positions yielding $\zeta$.
+Then $m_\zeta$ is a positive integer and
+\begin{equation}\label{eq:trace-sum}
+ \tr(L_g)=\sum_{\zeta\in Z}m_\zeta g(\zeta)
+ \qquad(g\in A_\C).
+\end{equation}
+
+Every complex common zero is in $Z$. To prove this, suppose $w$ is
+a common zero outside $Z$. There is a polynomial $q$ over $\C$
+with $q(w)=1$ and $q(\zeta)=0$ for all $\zeta\in Z$. Such a polynomial
+is obtained by multiplying, for each $\zeta$, a normalized coordinate
+difference separating $w$ and $\zeta$. The matrix $L_q$ is then strictly
+upper triangular, so $L_q^{\dim A}=0$. Applying this operator to $1$
+gives $q^{\dim A}=0$ in $A_\C$, contradicting evaluation at $w$.
+
+Complex conjugation permutes $Z$. It also preserves the multiplicities.
+Indeed, choose a polynomial $q_\zeta$ that equals one at $\zeta$ and
+zero at the other points of $Z$. Conjugation of coefficients gives
+\[
+ \tr(L_{\overline{q_\zeta}})
+ =\overline{\tr(L_{q_\zeta})}=m_\zeta.
+\]
+By~\eqref{eq:trace-sum}, the left side is $m_{\bar\zeta}$.
+
+Write $r$ for the number of real points of $Z$ and choose one point
+from each of its $c$ nonreal conjugate pairs. Evaluation defines a
+surjective real linear map
+\begin{equation}\label{eq:evaluation}
+ A\longrightarrow\R^r\times\C^c.
+\end{equation}
+To see surjectivity, first interpolate arbitrary values at the finite
+set $Z$, assigning conjugate values at conjugate points. Polynomial
+interpolation at finitely many distinct points follows from the same
+separating coordinate products. Averaging the interpolating polynomial
+with its coefficientwise conjugate gives real coefficients and
+preserves the assigned values.
+
+For real $a,b$, equation~\eqref{eq:trace-sum} now expresses the trace
+form as the pullback under~\eqref{eq:evaluation} of
+\begin{equation}\label{eq:trace-decomposition}
+ \sum_{\zeta\text{ real}}m_\zeta a(\zeta)b(\zeta)
+ +\sum_{\{\zeta,\bar\zeta\}}2m_\zeta
+       \operatorname{Re}\bigl(a(\zeta)b(\zeta)\bigr).
+\end{equation}
+Each real summand has one positive direction. On $\C\cong\R^2$,
+the form $2m\operatorname{Re}(zw)$ has matrix
+$\diag(2m,-2m)$ and hence one positive and one negative direction.
+Choose a real vector-space complement to the kernel of evaluation.
+Surjectivity identifies the trace form on that complement with
+\eqref{eq:trace-decomposition}; the kernel contributes zero directions.
+The signature is therefore $r$.
+\end{proof}
+
+\begin{corollary}\label{cor:signature-threshold}
+For every real $t$,
+\begin{equation}\label{eq:signature-threshold}
+ \sig H_n(t)
+ =\#\{u\in\R^k:\nabla Q_t(u)=0\},
+ \qquad
+ \sig H_n(t)=1\ \Longleftrightarrow\ t\leq m_n.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Lemma~\ref{lem:basis} gives a quotient algebra of dimension $M$ at every
+parameter. Its defining equations are nonzero scalar multiples of the
+partial derivatives of $Q_t$. Apply Proposition~\ref{prop:hermite} and
+then Proposition~\ref{prop:critical}.
+\end{proof}
+
+\section{The boundary polynomial and the selected root}\label{sec:selection}
+
+Expand the characteristic polynomial as
+\begin{equation}\label{eq:C}
+ C_n(t,\lambda)=\det(\lambda I_M-H_n(t))
+              =\sum_{j=0}^{M}c_j(t)\lambda^j.
+\end{equation}
+Since $c_M=1$, the following definition is finite and unambiguous.
+
+\begin{definition}\label{def:R}
+Let $e$ be the smallest index for which $c_e(t)$ is a nonzero polynomial,
+and put $R_n(t)=c_e(t)$.
+\end{definition}
+
+\begin{lemma}\label{lem:degree}
+Every entry of $H_n(t)$ has degree at most $kd$ in $t$, and
+\begin{equation}\label{eq:degree}
+ \deg R_n\leq kdM.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Consider a diagonal coefficient of multiplication by $u^{\alpha+\beta}$
+on the basis element $u^\gamma$. Reduction starts at total degree
+$\abs{\alpha}+\abs{\beta}+\abs{\gamma}$. Every step decreases this
+degree by exactly two. A term contributing to the coefficient of
+$u^\gamma$ therefore uses exactly
+\[
+ \frac{\abs{\alpha}+\abs{\beta}}{2}\leq kd
+\]
+steps. If this number is not an integer, there is no such term.
+The coefficient introduced by each step has $t$-degree at most one.
+Thus every contributing coefficient has $t$-degree at most $kd$.
+Taking the trace preserves the bound.
+
+Each coefficient of the determinant in~\eqref{eq:C} is a sum of
+products of at most $M$ matrix entries. Its degree is at most $kdM$,
+which proves~\eqref{eq:degree}.
+\end{proof}
+
+\begin{lemma}\label{lem:boundary}
+The signature of $H_n(t)$ is constant on each interval containing no
+real root of $R_n$, and $R_n(m_n)=0$.
+\end{lemma}
+
+\begin{proof}
+If $R_n(t)\ne0$, equation~\eqref{eq:C} shows that zero is an eigenvalue
+of algebraic multiplicity exactly $e$. Symmetry identifies this
+multiplicity with the nullity. The eigenvalues of a continuously varying
+real symmetric matrix vary continuously. Near a given parameter where
+$R_n\ne0$, the nonzero eigenvalues retain their signs, and the nullity
+remains $e$. The signature is consequently locally constant there,
+and hence constant on every such interval.
+
+If $R_n(m_n)\ne0$, there would be an interval about $m_n$ on which the
+signature is constant. Corollary~\ref{cor:signature-threshold} gives
+signature one to the left of $m_n$ and a strictly larger signature to
+its right, a contradiction.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Attainment and the lower bound follow from Lemma~\ref{lem:attainment}.
+The one-node integral is $2$. Lemma~\ref{lem:strict-upper} and
+Proposition~\ref{prop:endpoints} prove the remaining assertions about
+minimizers.
+
+The explicit construction of $H_n$ is~\eqref{eq:H}, using the rational
+forms~\eqref{eq:ND} and the reduction~\eqref{eq:rewrite}.
+Definition~\ref{def:R} specifies $R_n$, and Lemma~\ref{lem:degree}
+gives its degree bound. Since $0<m_n<2$, Lemma~\ref{lem:boundary}
+shows that $m_n=r_h$ for some $1\leq h\leq s$.
+
+For $j<h$, the rational sample $\rho_j$ is less than $m_n$; for
+$j\geq h$, it is greater than $m_n$. By
+Corollary~\ref{cor:signature-threshold},
+\[
+ \sig H_n(\rho_j)=1\quad\Longleftrightarrow\quad j<h.
+\]
+Exactly $h-1$ samples therefore have signature one, proving
+\eqref{eq:main-rule}.
+
+Finally, all polynomials and matrices in the construction are obtained
+by finite rational arithmetic. The index $e$ is determined by testing
+the finitely many rational coefficient polynomials for equality to
+zero. Univariate real root isolation orders the roots of $R_n$ in
+$(0,2)$ and supplies rational samples between them. The signatures
+of the rational symmetric matrices at those samples are obtained by
+exact symmetric elimination. These operations terminate for every
+positive integer $n$.
+\end{proof}
+
+\begin{corollary}\label{cor:algebraic}
+For $n\geq2$, the number $m_n$ is algebraic over $\Q$ of degree at most
+\[
+ 2n(n-1)^2\bigl(2n(n-1)+1\bigr)^{n-1}.
+\]
+\end{corollary}
+
+\begin{proof}
+The minimal polynomial of $m_n$ divides the nonzero polynomial $R_n$.
+Apply~\eqref{eq:degree}.
+\end{proof}
+
+\begin{remark}\label{rem:inertia}
+Exact symmetric elimination requires only rational operations.
+At a nonzero diagonal entry, a congruence and its Schur complement
+remove a one-dimensional block. If all diagonal entries vanish and
+some off-diagonal entry $b$ is nonzero, use the block
+$\bigl(\begin{smallmatrix}0&b\\b&0\end{smallmatrix}\bigr)$, which has
+one positive and one negative eigenvalue, and remove it by a block
+Schur complement. An all-zero remaining matrix contributes only
+zero eigenvalues. Dimension decreases at every step, including at
+singular parameter values.
+\end{remark}
+
+\section{The two- and three-node cases}\label{sec:examples}
+
+The first two nontrivial cases illustrate both the encoding and the
+selected-root rule.
+
+For $n=2$, one has $k=1$, $d=4$, and
+\[
+ D(u)=4u^4,\qquad N(u)=\frac{16}{3}u^4.
+\]
+Put $a=\frac83(t-\frac43)$. The normalized critical equation is
+$u^5-au^3=0$, so reduction uses $u^5=au^3$. On the basis
+$1,u,u^2,u^3,u^4$, the trace matrix is
+\begin{equation}\label{eq:two-node-H}
+ H_2(t)=
+ \begin{pmatrix}
+ 5&0&2a&0&2a^2\\
+ 0&2a&0&2a^2&0\\
+ 2a&0&2a^2&0&2a^3\\
+ 0&2a^2&0&2a^3&0\\
+ 2a^2&0&2a^3&0&2a^4
+ \end{pmatrix}.
+\end{equation}
+The trace moments follow directly from the multiplication matrix:
+$\tr(M_1)=5$, $\tr(M_{u^{2j}})=2a^j$ for $j\geq1$, and all odd
+moments vanish. Expanding the characteristic polynomial gives
+\[
+ R_2(t)=-12a^3(1+a^2)^2.
+\]
+Its only real root is $t=4/3$, and~\eqref{eq:main-rule} yields
+$m_2=4/3$.
+
+For $n=3$, Proposition~\ref{prop:endpoints} reduces the configuration
+to $(-1,y,1)$ with $-1<y<1$. Its cardinal polynomials are
+\[
+ \frac{(x-y)(x-1)}{2(1+y)},\qquad
+ \frac{1-x^2}{1-y^2},\qquad
+ \frac{(x+1)(x-y)}{2(1-y)}.
+\]
+Their squared integrals sum to
+\begin{equation}\label{eq:three-node}
+ I(-1,y,1)=\frac43-\frac{4}{3(1-y^2)}
+                   +\frac{8(3+y^2)}{15(1-y^2)^2}.
+\end{equation}
+As a function of $s=y^2\in[0,1)$, its derivative is
+\[
+ \frac{36+28s}{15(1-s)^3}>0.
+\]
+Thus the unique ordered minimizing triple is $(-1,0,1)$ and
+$m_3=8/5$. Theorem~\ref{thm:main} selects this same value from $R_3$.
+
+\section*{Acknowledgments}
+The authors acknowledge assistance from AI systems developed by OpenAI
+in mathematical exploration, checking, and preparation of this manuscript.
+
+\begin{thebibliography}{9}
+
+\bibitem{BPR}
+S. Basu, R. Pollack, and M.-F. Roy,
+\textit{Algorithms in Real Algebraic Geometry}, second ed.,
+Algorithms and Computation in Mathematics, vol.~10,
+Springer, Berlin, 2006.
+\href{https://doi.org/10.1007/3-540-33099-2}{doi:10.1007/3-540-33099-2}.
+
+\bibitem{Bloom}
+T. F. Bloom (ed.), Erd\H{o}s Problem~1131,
+\textit{Erd\H{o}s Problems}, online problem collection,
+accessed November~11, 2026.
+\href{https://www.erdosproblems.com/1131}{\nolinkurl{erdosproblems.com/1131}}.
+
+\bibitem{BT}
+L. Brutman and D. Toledano,
+An extremal problem of Erd\H{o}s in interpolation theory,
+\textit{Computers \& Mathematics with Applications} \textbf{34}
+(1997), no.~12, 37--47.
+\href{https://doi.org/10.1016/S0898-1221(97)00232-0}{doi:10.1016/S0898-1221(97)00232-0}.
+
+\bibitem{ESVV}
+P. Erd\H{o}s, J. Szabados, A. K. Varma, and P. V\'ertesi,
+On an interpolation theoretical extremal problem,
+\textit{Studia Scientiarum Mathematicarum Hungarica} \textbf{29}
+(1994), 55--60.
+
+\bibitem{LeSafey}
+H. P. Le and M. Safey El Din,
+Solving parametric systems of polynomial equations over the reals
+through Hermite matrices,
+\textit{Journal of Symbolic Computation} \textbf{112} (2022), 25--61.
+\href{https://doi.org/10.1016/j.jsc.2021.12.002}{doi:10.1016/j.jsc.2021.12.002};
+\href{https://arxiv.org/abs/2011.14136}{arXiv:2011.14136}.
+
+\bibitem{White}
+P. White, Erd\H{o}s \#1131: the four-node minimum, exactly,
+\textit{Erd\H{o}s Problem a Day}, August~11, 2026,
+\href{https://erdosproblemaday.com/day/1131-exact-four-node-minimum}{online article}.
+
+\end{thebibliography}
+\end{document}

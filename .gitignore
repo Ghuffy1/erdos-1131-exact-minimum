@@ -1,0 +1,14 @@
+.lake/
+.elan/
+.cache/
+.venv/
+__pycache__/
+*.olean
+*.ilean
+*.olean.server
+*.olean.private
+*.o
+*.c
+*.exe
+*.dll
+.DS_Store
