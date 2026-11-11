@@ -1,0 +1,73 @@
+{
+  "verdict": "passed for the stated exact algebraic value formulation",
+  "checked_utc": "2026-11-11T22:56:25.044939+00:00",
+  "proof_commit": "85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473",
+  "prepared_repository_commit": "04c5b158a3044f8f1dfd1467245b901c0c3ff9f1",
+  "prior_evidence_commit": "d64aff236eb7e63a55e8ac91309150c4a12548b0",
+  "rules_commit": "b1bfe454d37db2838ef76756830aeb23c40de95e",
+  "kernel_dependency_declarations": 58042,
+  "axiom_lists": 17,
+  "source_unchanged": true,
+  "checks": {
+    "build": {
+      "started_utc": "2026-11-11T22:47:14.405814+00:00",
+      "finished_utc": "2026-11-11T22:48:15.545517+00:00",
+      "exit_code": 0,
+      "source_unchanged": true,
+      "log": "submission-logs/build.log",
+      "sha256": "2f3c36e510e92b1e184022cbe48ca7e96929e007583d203c6dfed9b7e3b84445"
+    },
+    "challenge": {
+      "started_utc": "2026-11-11T22:48:35.609148+00:00",
+      "finished_utc": "2026-11-11T22:52:46.443951+00:00",
+      "exit_code": 0,
+      "source_unchanged": true,
+      "log": "submission-logs/challenge.log",
+      "sha256": "92be8fc20af6b28cb967a5a671cd386290006e71599992f027a39054e6f10e82"
+    },
+    "axioms": {
+      "started_utc": "2026-11-11T22:48:35.910663+00:00",
+      "finished_utc": "2026-11-11T22:52:46.442953+00:00",
+      "exit_code": 0,
+      "source_unchanged": true,
+      "log": "submission-logs/axioms.log",
+      "sha256": "d7716245dc9e8621e2dc29eaeac64bec78aee7cbda2ddba101839dbdb90a1297"
+    },
+    "standalone": {
+      "started_utc": "2026-11-11T22:48:35.669665+00:00",
+      "finished_utc": "2026-11-11T22:53:09.740694+00:00",
+      "exit_code": 0,
+      "source_unchanged": true,
+      "log": "submission-logs/standalone.log",
+      "sha256": "d0eed4e77eea68d18b57f447dd43bb8bce879c375c8aa7d52261b24faec93347"
+    },
+    "kernel": {
+      "started_utc": "2026-11-11T22:48:35.687660+00:00",
+      "finished_utc": "2026-11-11T22:55:27.685280+00:00",
+      "exit_code": 0,
+      "source_unchanged": true,
+      "log": "submission-logs/kernel.log",
+      "sha256": "29b9d4070fdc6a381da89be12b89a9338f31cea07cff68d1b8217ff14ed040ec"
+    }
+  },
+  "attribution": {
+    "owner": "Ghuffy1",
+    "equal_contributors": [
+      "H0W4RD-dev",
+      "Ghuffy1",
+      "JENW1N",
+      "lkruer"
+    ]
+  },
+  "original_source_checked": [
+    "https://www.erdosproblems.com/1131",
+    "https://www.erdosproblems.com/forum/discuss/1131"
+  ],
+  "submission_ready": true,
+  "external_review": [
+    "mathematical and scope acceptance",
+    "attribution and identity",
+    "novelty and priority",
+    "award eligibility"
+  ]
+}

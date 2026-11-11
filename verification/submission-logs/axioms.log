@@ -1,0 +1,37 @@
+Erdos1131.erdos1131_solution : ∀ (n : ℕ) (hn : 0 < n),
+  ∃ nodes,
+    Erdos1131.Admissible nodes ∧
+      Erdos1131.energy nodes = Erdos1131.algebraicMinimum n hn ∧
+        ∀ (other : Fin n → ℝ), Erdos1131.Admissible other → Erdos1131.algebraicMinimum n hn ≤ Erdos1131.energy other
+'Erdos1131.erdos1131_solution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131.algebraicMinimum_eq_minimum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131.minimum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131.boundaryPolynomial_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Asymptotic.not_erdos_1131' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.energy_eq_reference_functional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.attainable_values_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.minimum_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.shifted_scaledDefect_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.asymptotic_coefficient_one_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+Erdos1131Submission.complete_problem : (∀ (n : ℕ) (hn : 0 < n),
+    ∃ nodes,
+      Erdos1131.Admissible nodes ∧
+        Erdos1131.energy nodes = Erdos1131.algebraicMinimum n hn ∧
+          ∀ (other : Fin n → ℝ),
+            Erdos1131.Admissible other → Erdos1131.algebraicMinimum n hn ≤ Erdos1131.energy other) ∧
+  ¬Filter.Tendsto Erdos1131Submission.scaledDefect Filter.atTop (nhds 1)
+'Erdos1131Submission.complete_problem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.admissible_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.integral_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.infimum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.exact_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.asymptotic_original' depends on axioms: [propext, Classical.choice, Quot.sound]
+OriginalProblem1131.full_original_problem : (∀ (n : ℕ) (hn : 0 < n),
+    ∃ nodes,
+      OriginalProblem1131.admissible nodes ∧
+        OriginalProblem1131.integral nodes = Erdos1131.algebraicMinimum n hn ∧
+          ∀ (other : Fin n → ℝ),
+            OriginalProblem1131.admissible other →
+              Erdos1131.algebraicMinimum n hn ≤ OriginalProblem1131.integral other) ∧
+  ¬Filter.Tendsto (fun n => ↑n * (2 - OriginalProblem1131.infimum n)) Filter.atTop (nhds 1)
+'OriginalProblem1131.full_original_problem' depends on axioms: [propext, Classical.choice, Quot.sound]
