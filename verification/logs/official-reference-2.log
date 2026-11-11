@@ -1,0 +1,42 @@
+Erdos1131Submission.minimum_eq_reference : ∀ (n : Nat), @Eq.{1} Real (Erdos1131.minimum n) (Erdos1131Asymptotic.M n)
+theorem Erdos1131Submission.minimum_eq_reference : ∀ (n : Nat),
+  @Eq.{1} Real (Erdos1131.minimum n) (Erdos1131Asymptotic.M n) :=
+fun (n : Nat) =>
+  @id.{0} (@Eq.{1} Real (Erdos1131.minimum n) (Erdos1131Asymptotic.M n))
+    (@id.{0}
+      (@Eq.{1} Real
+        (@InfSet.sInf.{0} Real Real.instInfSet
+          (@Set.ofPred.{0} Real fun (v : Real) =>
+            @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+              And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)))
+        (Erdos1131Asymptotic.M n))
+      (@Eq.mpr.{0}
+        (@Eq.{1} Real
+          (@InfSet.sInf.{0} Real Real.instInfSet
+            (@Set.ofPred.{0} Real fun (v : Real) =>
+              @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)))
+          (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n)))
+        (@Eq.{1} Real (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n))
+          (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n)))
+        (@id.{0}
+          (@Eq.{1} Prop
+            (@Eq.{1} Real
+              (@InfSet.sInf.{0} Real Real.instInfSet
+                (@Set.ofPred.{0} Real fun (v : Real) =>
+                  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                    And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)))
+              (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n)))
+            (@Eq.{1} Real (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n))
+              (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n))))
+          (@congrArg.{1, 1} (Set.{0} Real) Prop
+            (@Set.ofPred.{0} Real fun (v : Real) =>
+              @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v))
+            (Erdos1131Asymptotic.values n)
+            (fun (_a : Set.{0} Real) =>
+              @Eq.{1} Real (@InfSet.sInf.{0} Real Real.instInfSet _a)
+                (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n)))
+            (Erdos1131Submission.attainable_values_eq_reference n)))
+        (@Eq.refl.{1} Real (@InfSet.sInf.{0} Real Real.instInfSet (Erdos1131Asymptotic.values n)))))
+'Erdos1131Submission.minimum_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]

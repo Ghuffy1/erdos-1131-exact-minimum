@@ -1,0 +1,2 @@
+# Preserve compiler diagnostic spacing in recorded output.
+logs/*.log -whitespace

@@ -1,0 +1,423 @@
+{
+  "proof_repository": "https://github.com/Ghuffy1/erdos-1131-exact-minimum",
+  "proof_commit": "85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473",
+  "verification_completed_utc": "2026-11-11T18:28:12.885652+00:00",
+  "original_problem": "JSP-000938 / Erd\u0151s 1131",
+  "mechanical_status": "standard_axioms_only",
+  "official_helper_commit": "b1bfe454d37db2838ef76756830aeb23c40de95e",
+  "official_helper_sha256": "fb8c7e3b815d266425581a4f36d2343b1e3d7eae7a0cd8f4c51c055af65d01e0",
+  "executed_manifest_sha256": "7b31ebbe09fc3abe0d3d441587e5066304ae9e6a1f108cbc7ed63b35302d1765",
+  "portable_manifest_sha256": "03da46254795ff3d57afb9f2a512070ed8d3de46319567ac5620749e4175b17d",
+  "input_stability": true,
+  "kernel_dependency_declarations": 58042,
+  "stages": {
+    "build": {
+      "command": "lake build",
+      "started_utc": "2026-11-11T17:12:51.727863+00:00",
+      "finished_utc": "2026-11-11T17:26:17.383516+00:00",
+      "elapsed_seconds": 805.655653,
+      "exit_code": 0,
+      "all_92_tracked_files_unchanged": true,
+      "log": "logs/build.log"
+    },
+    "challenge": {
+      "command": "lake env lean Challenge.lean",
+      "started_utc": "2026-11-11T17:26:41.431309+00:00",
+      "finished_utc": "2026-11-11T17:27:06.624340+00:00",
+      "elapsed_seconds": 25.193031,
+      "exit_code": 0,
+      "all_92_tracked_files_unchanged": true,
+      "log": "logs/challenge.log"
+    },
+    "axioms": {
+      "command": "lake env lean tools/AxiomAudit.lean",
+      "started_utc": "2026-11-11T17:26:41.420305+00:00",
+      "finished_utc": "2026-11-11T17:27:07.156794+00:00",
+      "elapsed_seconds": 25.736489,
+      "exit_code": 0,
+      "all_92_tracked_files_unchanged": true,
+      "log": "logs/axioms.log"
+    },
+    "standalone": {
+      "command": "lake env lean Erdos1131Full.lean",
+      "started_utc": "2026-11-11T17:26:41.435308+00:00",
+      "finished_utc": "2026-11-11T17:28:08.719368+00:00",
+      "elapsed_seconds": 87.28406,
+      "exit_code": 0,
+      "all_92_tracked_files_unchanged": true,
+      "log": "logs/standalone.log"
+    },
+    "kernel": {
+      "command": "lake env lean --run tools/ReplayProof.lean",
+      "started_utc": "2026-11-11T17:26:41.696780+00:00",
+      "finished_utc": "2026-11-11T17:31:13.840892+00:00",
+      "elapsed_seconds": 272.144112,
+      "exit_code": 0,
+      "all_92_tracked_files_unchanged": true,
+      "log": "logs/kernel.log"
+    }
+  },
+  "official_targets": [
+    {
+      "id": "exact",
+      "declaration": "Erdos1131.erdos1131_solution",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-exact-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-exact-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-exact-2.log"
+        }
+      ]
+    },
+    {
+      "id": "attainment",
+      "declaration": "Erdos1131.minimum_attained",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-attainment-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-attainment-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-attainment-2.log"
+        }
+      ]
+    },
+    {
+      "id": "degree",
+      "declaration": "Erdos1131.boundaryPolynomial_degree",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-degree-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-degree-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-degree-2.log"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "declaration": "Erdos1131Submission.minimum_eq_reference",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-reference-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-reference-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-reference-2.log"
+        }
+      ]
+    },
+    {
+      "id": "asymptotic",
+      "declaration": "Erdos1131Submission.asymptotic_coefficient_one_false",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-asymptotic-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-asymptotic-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-asymptotic-2.log"
+        }
+      ]
+    },
+    {
+      "id": "combined",
+      "declaration": "Erdos1131Submission.complete_problem",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-combined-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-combined-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-combined-2.log"
+        }
+      ]
+    },
+    {
+      "id": "integral",
+      "declaration": "OriginalProblem1131.integral_eq",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-integral-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-integral-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-integral-2.log"
+        }
+      ]
+    },
+    {
+      "id": "original",
+      "declaration": "OriginalProblem1131.full_original_problem",
+      "status": "standard_axioms_only",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "commands": [
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-original-0.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-original-1.log"
+        },
+        {
+          "status": "ok",
+          "exit_code": 0,
+          "log": "logs/official-original-2.log"
+        }
+      ]
+    }
+  ],
+  "logs": {
+    "logs/build.log": {
+      "sha256": "efc1130997b2f732e15bf8ac9f35a3ab2138919675ecb2703b8609bb5e4721ff",
+      "bytes": 38509
+    },
+    "logs/challenge.log": {
+      "sha256": "92be8fc20af6b28cb967a5a671cd386290006e71599992f027a39054e6f10e82",
+      "bytes": 288
+    },
+    "logs/axioms.log": {
+      "sha256": "d7716245dc9e8621e2dc29eaeac64bec78aee7cbda2ddba101839dbdb90a1297",
+      "bytes": 2906
+    },
+    "logs/standalone.log": {
+      "sha256": "d0eed4e77eea68d18b57f447dd43bb8bce879c375c8aa7d52261b24faec93347",
+      "bytes": 10558
+    },
+    "logs/kernel.log": {
+      "sha256": "29b9d4070fdc6a381da89be12b89a9338f31cea07cff68d1b8217ff14ed040ec",
+      "bytes": 202
+    },
+    "logs/official-exact-0.log": {
+      "sha256": "170565c218bf9773beb02e977e905442664b5f1f95a13dd8560ea49d9add2fc3",
+      "bytes": 11111
+    },
+    "logs/official-exact-1.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/official-exact-2.log": {
+      "sha256": "0cf1b686e1da6ca19e6b06d6f93121e4458e63caa0b4be11d5ecc330d99c1010",
+      "bytes": 5312
+    },
+    "logs/official-attainment-0.log": {
+      "sha256": "3abf715fd1272c5891d799a7cc0a8cc8105701a04142124924eec4ba525a57fd",
+      "bytes": 1970
+    },
+    "logs/official-attainment-1.log": {
+      "sha256": "217a555e3ba9f19bb9500b23eb06030c1cc3bac87fe63fe78aff6301a4e256bb",
+      "bytes": 349
+    },
+    "logs/official-attainment-2.log": {
+      "sha256": "073085837f1b60f74b243af63dca7bac41b0317db15e5648851dce69a2c62e26",
+      "bytes": 13502
+    },
+    "logs/official-degree-0.log": {
+      "sha256": "a3fe8c3535f200241a5d5fa8cceeec1a346955ecff6f8ab52ff7d7d45c8bc84c",
+      "bytes": 3155
+    },
+    "logs/official-degree-1.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "logs/official-degree-2.log": {
+      "sha256": "084f9433bbf0a78c044d1f13cb17c22945778f86e148d318d9607334970ea08a",
+      "bytes": 23845
+    },
+    "logs/official-reference-0.log": {
+      "sha256": "b5fa92e4787a0045ca975473558e6c44a021038f2a6efcd2c11db1e4a0183cdd",
+      "bytes": 17353
+    },
+    "logs/official-reference-1.log": {
+      "sha256": "a8da2250974a1bc6bde08e97331e92d9054015c6231f9e85c6a9e110937c09ae",
+      "bytes": 314
+    },
+    "logs/official-reference-2.log": {
+      "sha256": "a015953a5e2605f261ef2eae39b3eac16f99796b2797eb47ad91c473ee4699b8",
+      "bytes": 2663
+    },
+    "logs/official-asymptotic-0.log": {
+      "sha256": "3c503e21a62a0043d4d13b2ea14739979fea55014e979692c348e799df6d2c3a",
+      "bytes": 17353
+    },
+    "logs/official-asymptotic-1.log": {
+      "sha256": "a8da2250974a1bc6bde08e97331e92d9054015c6231f9e85c6a9e110937c09ae",
+      "bytes": 314
+    },
+    "logs/official-asymptotic-2.log": {
+      "sha256": "2bb9dfeeb2cc8f5fdc136ebdac6ebc724d7060432c4ad0b31778fbba00e20ebc",
+      "bytes": 4245
+    },
+    "logs/official-combined-0.log": {
+      "sha256": "af5f30aeaed7d0c7a2dded4c45ac4c1c02cbd0a19c7625403477f0d1dcb4b637",
+      "bytes": 17353
+    },
+    "logs/official-combined-1.log": {
+      "sha256": "a8da2250974a1bc6bde08e97331e92d9054015c6231f9e85c6a9e110937c09ae",
+      "bytes": 314
+    },
+    "logs/official-combined-2.log": {
+      "sha256": "f321bd9ecec2022b4a18659619b612bf637e0476bc83ebab8a112a20d83222a8",
+      "bytes": 2840
+    },
+    "logs/official-integral-0.log": {
+      "sha256": "3f24db3bf6b3039571281d707c59b97ae4b03d4023c092d6d0a02922e321ad5a",
+      "bytes": 17757
+    },
+    "logs/official-integral-1.log": {
+      "sha256": "92be8fc20af6b28cb967a5a671cd386290006e71599992f027a39054e6f10e82",
+      "bytes": 288
+    },
+    "logs/official-integral-2.log": {
+      "sha256": "ff6cacfff12c2a2a4ca1259882f453283e70551f62d6433872782cd81e77dbd9",
+      "bytes": 26025
+    },
+    "logs/official-original-0.log": {
+      "sha256": "e9350b6ce6fca65b3ce141a9b84c02eb2b88df25eb6563602c9636a2dd95d416",
+      "bytes": 17757
+    },
+    "logs/official-original-1.log": {
+      "sha256": "92be8fc20af6b28cb967a5a671cd386290006e71599992f027a39054e6f10e82",
+      "bytes": 288
+    },
+    "logs/official-original-2.log": {
+      "sha256": "cc3c4cb86df4c3d91beea993a2dc3f577fcf0cfbce3495b709b7777b43bb870d",
+      "bytes": 4708
+    }
+  },
+  "scope_judgment": "Full original scope under the exact algebraic value-rule interpretation. Organizer mathematical and scope review remain pending.",
+  "trust_boundary": "Pinned Lean implementation and reused dependency cache, with full proof dependency replay into an initially empty environment.",
+  "unperformed": [
+    "completed whole-import checker replay",
+    "independently implemented kernel checker",
+    "independent human review",
+    "container or virtual-machine isolation",
+    "award acceptance",
+    "identity verification",
+    "absolute first-priority certification"
+  ],
+  "interrupted_attempts": {
+    "checks": [
+      "first official helper run",
+      "first whole-import checker run"
+    ],
+    "verified_exit_codes": null,
+    "observation": "Executor sessions and recorded processes were absent after a client context update. Original outputs were preserved. The official helper retry completed successfully.",
+    "proof_sources_unchanged": true
+  },
+  "whole_import_checker_retry": {
+    "status": "intentionally stopped",
+    "completed": false,
+    "observed_exit_code": 4294967295,
+    "proof_sources_unchanged": true,
+    "reason": "The additional checker replays every imported declaration, including unused library material. It was stopped after the complete target-dependency replay and every explicit target check passed."
+  }
+}

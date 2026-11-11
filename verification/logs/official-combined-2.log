@@ -1,0 +1,41 @@
+Erdos1131Submission.complete_problem : And
+  (∀ (n : Nat) (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+    @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+      And (@Erdos1131.Admissible n nodes)
+        (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+          (∀ (other : Fin n → Real),
+            @Erdos1131.Admissible n other →
+              @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+  (Not
+    (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))
+theorem Erdos1131Submission.complete_problem : And
+  (∀ (n : Nat) (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+    @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+      And (@Erdos1131.Admissible n nodes)
+        (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+          (∀ (other : Fin n → Real),
+            @Erdos1131.Admissible n other →
+              @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+  (Not
+    (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))) :=
+@And.intro
+  (∀ (n : Nat) (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+    @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+      And (@Erdos1131.Admissible n nodes)
+        (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+          (∀ (other : Fin n → Real),
+            @Erdos1131.Admissible n other →
+              @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+  (Not
+    (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))
+  Erdos1131.erdos1131_solution Erdos1131Submission.asymptotic_coefficient_one_false
+'Erdos1131Submission.complete_problem' depends on axioms: [propext, Classical.choice, Quot.sound]

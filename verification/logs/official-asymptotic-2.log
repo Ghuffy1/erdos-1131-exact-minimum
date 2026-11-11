@@ -1,0 +1,68 @@
+Erdos1131Submission.asymptotic_coefficient_one_false : Not
+  (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+theorem Erdos1131Submission.asymptotic_coefficient_one_false : Not
+  (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))) :=
+fun
+    (hlimit :
+      @Filter.Tendsto.{0, 0} Nat Real Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))) =>
+  have hshift :
+    @Filter.Tendsto.{0, 0} Nat Real
+      (fun (n : Nat) =>
+        Erdos1131Submission.scaledDefect
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :=
+    @Filter.Tendsto.comp.{0, 0, 0} Nat Nat Real
+      (fun (n : Nat) =>
+        @HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      Erdos1131Submission.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder) (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@nhds.{0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      hlimit (Filter.tendsto_add_atTop_nat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))));
+  Erdos1131Asymptotic.not_erdos_1131
+    (@Eq.mp.{0}
+      (@Filter.Tendsto.{0, 0} Nat Real
+        (fun (n : Nat) =>
+          Erdos1131Submission.scaledDefect
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+      (@Filter.Tendsto.{0, 0} Nat Real Erdos1131Asymptotic.scaledDefect (@Filter.atTop.{0} Nat Nat.instPreorder)
+        (@nhds.{0} Real
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+      (@congrArg.{1, 1} ((n : Nat) → Real) Prop
+        (fun (n : Nat) =>
+          Erdos1131Submission.scaledDefect
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        Erdos1131Asymptotic.scaledDefect
+        (fun (_a : (n : Nat) → Real) =>
+          @Filter.Tendsto.{0, 0} Nat Real _a (@Filter.atTop.{0} Nat Nat.instPreorder)
+            (@nhds.{0} Real
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        Erdos1131Submission.shifted_scaledDefect_eq_reference)
+      hshift)
+'Erdos1131Submission.asymptotic_coefficient_one_false' depends on axioms: [propext, Classical.choice, Quot.sound]

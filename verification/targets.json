@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "project": {
+    "root": "/work/erdos-1131-exact-minimum",
+    "repository": "https://github.com/Ghuffy1/erdos-1131-exact-minimum",
+    "commit": "85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473",
+    "toolchain": "leanprover/lean4:v4.34.1"
+  },
+  "problems": [
+    {
+      "id": "JSP-000938",
+      "source": "https://www.erdosproblems.com/1131",
+      "requirements": [
+        {
+          "id": "objects",
+          "description": "Arbitrary pairwise distinct real nodes in [-1,1] and the original cardinal-product ordinary integral",
+          "targets": [
+            "integral",
+            "original"
+          ],
+          "coverage": "full",
+          "evidence": "Challenge.lean defines the cardinal product and ordinary integral directly; admissible_eq, integral_eq, and infimum_eq prove correspondence."
+        },
+        {
+          "id": "all-positive-n",
+          "description": "An explicit exact value of the minimum for every positive integer n",
+          "targets": [
+            "exact",
+            "original"
+          ],
+          "coverage": "full",
+          "evidence": "RootSelection.lean defines the algebraic value rule; algebraicMinimum_eq_minimum and erdos1131_solution hold for every n > 0, including n = 1."
+        },
+        {
+          "id": "attainment",
+          "description": "The exact minimum is attained by admissible nodes",
+          "targets": [
+            "attainment",
+            "exact"
+          ],
+          "coverage": "full",
+          "evidence": "MinimumAttainment.lean proves minimum_attained for every positive node count; CompleteSolution.lean provides the attained value and universal lower bound."
+        },
+        {
+          "id": "finite-construction",
+          "description": "The rational polynomial and matrix construction has the stated finite degree bound",
+          "targets": [
+            "degree",
+            "exact"
+          ],
+          "coverage": "full",
+          "evidence": "CoefficientDegrees.lean proves boundaryPolynomial_degree; BoundaryPolynomial.lean proves nonvanishing; RootSelection.lean selects the root by signatures at rational samples."
+        },
+        {
+          "id": "matching-infima",
+          "description": "The exact-value and prior asymptotic proofs use the same infimum",
+          "targets": [
+            "reference"
+          ],
+          "coverage": "full",
+          "evidence": "Submission.lean proves energy_eq_reference_functional, attainable_values_eq_reference, and minimum_eq_reference, including the bijective node representation."
+        },
+        {
+          "id": "coefficient-one",
+          "description": "The proposed asymptotic n(2-m_n) -> 1 is false for the original sequence",
+          "targets": [
+            "asymptotic",
+            "combined",
+            "original"
+          ],
+          "coverage": "full",
+          "evidence": "Submission.lean transfers the prior shifted asymptotic disproof; Challenge.lean proves asymptotic_original and full_original_problem for the original infimum."
+        }
+      ]
+    }
+  ],
+  "targets": [
+    {
+      "id": "exact",
+      "problem": "JSP-000938",
+      "role": "theorem",
+      "module": "CompleteSolution",
+      "source": "CompleteSolution.lean",
+      "declaration": "Erdos1131.erdos1131_solution"
+    },
+    {
+      "id": "attainment",
+      "problem": "JSP-000938",
+      "role": "theorem",
+      "module": "MinimumAttainment",
+      "source": "MinimumAttainment.lean",
+      "declaration": "Erdos1131.minimum_attained"
+    },
+    {
+      "id": "degree",
+      "problem": "JSP-000938",
+      "role": "theorem",
+      "module": "CoefficientDegrees",
+      "source": "CoefficientDegrees.lean",
+      "declaration": "Erdos1131.boundaryPolynomial_degree"
+    },
+    {
+      "id": "reference",
+      "problem": "JSP-000938",
+      "role": "bridge",
+      "module": "Submission",
+      "source": "Submission.lean",
+      "declaration": "Erdos1131Submission.minimum_eq_reference"
+    },
+    {
+      "id": "asymptotic",
+      "problem": "JSP-000938",
+      "role": "theorem",
+      "module": "Submission",
+      "source": "Submission.lean",
+      "declaration": "Erdos1131Submission.asymptotic_coefficient_one_false"
+    },
+    {
+      "id": "combined",
+      "problem": "JSP-000938",
+      "role": "theorem",
+      "module": "Submission",
+      "source": "Submission.lean",
+      "declaration": "Erdos1131Submission.complete_problem"
+    },
+    {
+      "id": "integral",
+      "problem": "JSP-000938",
+      "role": "bridge",
+      "module": "Challenge",
+      "source": "Challenge.lean",
+      "declaration": "OriginalProblem1131.integral_eq"
+    },
+    {
+      "id": "original",
+      "problem": "JSP-000938",
+      "role": "bridge",
+      "module": "Challenge",
+      "source": "Challenge.lean",
+      "declaration": "OriginalProblem1131.full_original_problem"
+    }
+  ]
+}

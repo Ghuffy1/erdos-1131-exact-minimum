@@ -1,0 +1,348 @@
+Erdos1131.boundaryPolynomial_degree : ∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@Polynomial.natDegree.{0} Rat Rat.semiring (Erdos1131.boundaryPolynomial k))
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        k))
+theorem Erdos1131.boundaryPolynomial_degree : ∀ (k : Nat),
+  @LE.le.{0} Nat instLENat (@Polynomial.natDegree.{0} Rat Rat.semiring (Erdos1131.boundaryPolynomial k))
+    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+      (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+        (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        k)) :=
+fun (k : Nat) =>
+  have h :
+    @LE.le.{0} Nat instLENat
+      (@Polynomial.natDegree.{0} Rat Rat.semiring
+        (@DFunLike.coe.{1, 1, 1}
+          (@Finsupp.{0, 0} Nat Erdos1131.ParameterRing
+            (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+              (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                  (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+          Nat (fun (x : Nat) => Erdos1131.ParameterRing)
+          (@Finsupp.instFunLike.{0, 0} Nat Erdos1131.ParameterRing
+            (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+              (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                  (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+          (@Polynomial.coeff.{0} Erdos1131.ParameterRing
+            (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+              (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)))
+            (@Matrix.charpoly.{0, 0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)
+              (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+              (fun (a b : Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k)) =>
+                @Fintype.decidablePiFintype.{0, 0} (Fin k)
+                  (fun (a : Fin k) =>
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (fun (a : Fin k) =>
+                    instDecidableEqFin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (Fin.fintype k) a b)
+              (@Pi.instFintype.{0, 0} (Fin k)
+                (fun (a : Fin k) =>
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                Fin.fintype
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (Erdos1131.parametricHermiteMatrix k)))
+          (Erdos1131.boundaryIndex k)))
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+          (@Pi.instFintype.{0, 0} (Fin k)
+            (fun (a : Fin k) =>
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))) :=
+    @Erdos1131.characteristic_coefficient_degree.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+      (@Pi.instFintype.{0, 0} (Fin k)
+        (fun (a : Fin k) =>
+          Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+        Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (fun (a b : Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k)) =>
+        @Fintype.decidablePiFintype.{0, 0} (Fin k)
+          (fun (a : Fin k) =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun (a : Fin k) =>
+            instDecidableEqFin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype k) a b)
+      (Erdos1131.parametricHermiteMatrix k)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+      (Erdos1131.parametricHermiteMatrix_entry_degree k) (Erdos1131.boundaryIndex k);
+  @id.{0}
+    (@LE.le.{0} Nat instLENat (@Polynomial.natDegree.{0} Rat Rat.semiring (Erdos1131.boundaryPolynomial k))
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+        (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+          (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          k)))
+    (@Eq.mp.{0}
+      (@LE.le.{0} Nat instLENat
+        (@Polynomial.natDegree.{0} Rat Rat.semiring
+          (@DFunLike.coe.{1, 1, 1}
+            (@Finsupp.{0, 0} Nat Erdos1131.ParameterRing
+              (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                  (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                    (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                      (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+            Nat (fun (x : Nat) => Erdos1131.ParameterRing)
+            (@Finsupp.instFunLike.{0, 0} Nat Erdos1131.ParameterRing
+              (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                  (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                    (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                      (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+            (@Polynomial.coeff.{0} Erdos1131.ParameterRing
+              (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)))
+              (@Matrix.charpoly.{0, 0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)
+                (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+                (fun (a b : Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k)) =>
+                  @Fintype.decidablePiFintype.{0, 0} (Fin k)
+                    (fun (a : Fin k) =>
+                      Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (fun (a : Fin k) =>
+                      instDecidableEqFin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (Fin.fintype k) a b)
+                (@Pi.instFintype.{0, 0} (Fin k)
+                  (fun (a : Fin k) =>
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                  Fin.fintype
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Erdos1131.parametricHermiteMatrix k)))
+            (Erdos1131.boundaryIndex k)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+            (@Pi.instFintype.{0, 0} (Fin k)
+              (fun (a : Fin k) =>
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+              Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))))
+      (@LE.le.{0} Nat instLENat
+        (@Polynomial.natDegree.{0} Rat Rat.semiring
+          (@DFunLike.coe.{1, 1, 1}
+            (@Finsupp.{0, 0} Nat Erdos1131.ParameterRing
+              (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                  (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                    (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                      (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+            Nat (fun (x : Nat) => Erdos1131.ParameterRing)
+            (@Finsupp.instFunLike.{0, 0} Nat Erdos1131.ParameterRing
+              (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                  (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                    (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                      (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+            (@Polynomial.coeff.{0} Erdos1131.ParameterRing
+              (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)))
+              (@Matrix.charpoly.{0, 0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)
+                (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+                (fun (a b : Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k)) =>
+                  @Fintype.decidablePiFintype.{0, 0} (Fin k)
+                    (fun (a : Fin k) =>
+                      Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (fun (a : Fin k) =>
+                      instDecidableEqFin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (Fin.fintype k) a b)
+                (@Pi.instFintype.{0, 0} (Fin k)
+                  (fun (a : Fin k) =>
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                  Fin.fintype
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Erdos1131.parametricHermiteMatrix k)))
+            (Erdos1131.boundaryIndex k)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            k)))
+      (@congrArg.{1, 1} Nat Prop
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+            (@Pi.instFintype.{0, 0} (Fin k)
+              (fun (a : Fin k) =>
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+              Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k)))
+        (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+          (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+            (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            k))
+        (@LE.le.{0} Nat instLENat
+          (@Polynomial.natDegree.{0} Rat Rat.semiring
+            (@DFunLike.coe.{1, 1, 1}
+              (@Finsupp.{0, 0} Nat Erdos1131.ParameterRing
+                (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                  (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                    (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                      (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                        (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+              Nat (fun (x : Nat) => Erdos1131.ParameterRing)
+              (@Finsupp.instFunLike.{0, 0} Nat Erdos1131.ParameterRing
+                (@MulZeroClass.toZero.{0} Erdos1131.ParameterRing
+                  (@instMulZeroClassOfSemiring.{0} Erdos1131.ParameterRing
+                    (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                      (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing
+                        (@Polynomial.commRing.{0} Rat Rat.commRing))))))
+              (@Polynomial.coeff.{0} Erdos1131.ParameterRing
+                (@CommSemiring.toSemiring.{0} Erdos1131.ParameterRing
+                  (@CommRing.toCommSemiring.{0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)))
+                (@Matrix.charpoly.{0, 0} Erdos1131.ParameterRing (@Polynomial.commRing.{0} Rat Rat.commRing)
+                  (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+                  (fun (a b : Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k)) =>
+                    @Fintype.decidablePiFintype.{0, 0} (Fin k)
+                      (fun (a : Fin k) =>
+                        Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (fun (a : Fin k) =>
+                        instDecidableEqFin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (Fin.fintype k) a b)
+                  (@Pi.instFintype.{0, 0} (Fin k)
+                    (fun (a : Fin k) =>
+                      Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                    Fin.fintype
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (Erdos1131.parametricHermiteMatrix k)))
+              (Erdos1131.boundaryIndex k))))
+        (@Eq.trans.{1} Nat
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+              (@Pi.instFintype.{0, 0} (Fin k)
+                (fun (a : Fin k) =>
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                Fin.fintype
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k)))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              k)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k)))
+          (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k))
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              k))
+          (@congrFun'.{1, 1} Nat Nat
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+                (@Pi.instFintype.{0, 0} (Fin k)
+                  (fun (a : Fin k) =>
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                  Fin.fintype
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                k))
+            (@congrArg.{1, 1} Nat (Nat → Nat)
+              (@Fintype.card.{0} (Erdos1131.BoundedIndex k (Erdos1131.clearedDegree k))
+                (@Pi.instFintype.{0, 0} (Fin k)
+                  (fun (a : Fin k) =>
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (instDecidableEqFin k) (Fin.fintype k) fun (a : Fin k) =>
+                  Fin.fintype
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+              (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+                (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                k)
+              (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat))
+              (Erdos1131.card_boundedIndex k (Erdos1131.clearedDegree k)))
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k)))
+          (Nat.mul_comm
+            (@HPow.hPow.{0, 0, 0} Nat Nat Nat
+              (@instHPow.{0, 0} Nat Nat (@NPow.toPow.{0} Nat (@Monoid.toNPow.{0} Nat Nat.instMonoid)))
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (Erdos1131.clearedDegree k)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              k)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) k (Erdos1131.clearedDegree k)))))
+      h)
+'Erdos1131.boundaryPolynomial_degree' depends on axioms: [propext, Classical.choice, Quot.sound]

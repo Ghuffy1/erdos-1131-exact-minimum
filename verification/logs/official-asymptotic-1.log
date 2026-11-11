@@ -1,0 +1,3 @@
+'Erdos1131Submission.minimum_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.asymptotic_coefficient_one_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos1131Submission.complete_problem' depends on axioms: [propext, Classical.choice, Quot.sound]

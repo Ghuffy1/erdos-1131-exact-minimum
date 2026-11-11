@@ -1,0 +1,300 @@
+⚠ [3240/3471] Replayed QuadraticSurjection
+warning: QuadraticSurjection.lean:27:4: Try `simp at hp` instead of `simpa using hp`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3241/3471] Replayed QuadraticContinuity
+warning: QuadraticContinuity.lean:20:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: QuadraticContinuity.lean:34:13: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, dist_zero_right, norm_smul, norm_inv, hnorm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuadraticContinuity.lean:34:32: This simp argument is unused:
+  dist_zero_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, Metric.mem_sphere, norm_smul, norm_inv, hnorm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3243/3471] Replayed MonomialReduction
+warning: MonomialReduction.lean:157:8: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hij, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:157:46: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:167:10: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hij, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:167:53: This simp argument is unused:
+  hij.symm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:170:17: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.add_apply, Finsupp.single_eq_same]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:170:55: This simp argument is unused:
+  Finsupp.single_eq_same
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.sub_apply, Finsupp.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:171:12: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:12: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hxi, hxj, Ne.symm hxi, Ne.symm hxj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:60: This simp argument is unused:
+  Ne.symm hxi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hxi, hxj, Ne.symm hxj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:73: This simp argument is unused:
+  Ne.symm hxj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hxi, hxj, Ne.symm hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3245/3471] Replayed MonomialQuotient
+warning: MonomialQuotient.lean:62:9: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3497/3635] Replayed TraceNilpotents
+warning: TraceNilpotents.lean:44:9: Variable name `x` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3536/3635] Replayed ComplexTraceForm
+warning: ComplexTraceForm.lean:48:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ComplexTraceForm.lean:51:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ComplexTraceForm.lean:76:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ComplexTraceForm.lean:89:50: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [complexDiagonalWeights, not_lt_of_ge ha.le]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: ComplexTraceForm.lean:89:74: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3538/3635] Replayed QuadraticProduct
+warning: QuadraticProduct.lean:40:6: This simp argument is unused:
+  LinearEquiv.piCurry_symm_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [QuadraticMap.weightedSumSquares_apply, QuadraticMap.pi_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuadraticProduct.lean:49:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3539/3635] Replayed RealTraceForm
+warning: RealTraceForm.lean:20:4: This simp argument is unused:
+  mul_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [QuadraticMap.weightedSumSquares_apply, LinearEquiv.funUnique]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3612/3666] Replayed ReducedAlgebra
+warning: ReducedAlgebra.lean:34:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: ReducedAlgebra.lean:45:4: Try `simp at hvalue` instead of `simpa using hvalue`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ReducedAlgebra.lean:50:51: Try `simp at h` instead of `simpa using h`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3613/3666] Replayed TraceProduct
+warning: TraceProduct.lean:41:0: automatically included section variable(s) unused in theorem `Erdos1131.traceQuadratic_eq_pullback`:
+  [Module.Finite ℝ A]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Module.Finite ℝ A] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3615/3666] Replayed RealCharacters
+warning: RealCharacters.lean:14:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3616/3666] Replayed QuotientZeros
+warning: QuotientZeros.lean:77:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: QuotientZeros.lean:79:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3617/3666] Replayed HermiteSignature
+warning: HermiteSignature.lean:41:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3624/3666] Replayed SymmetricNullity
+warning: SymmetricNullity.lean:17:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3626/3666] Replayed PolynomialDifferentiation
+warning: PolynomialDifferentiation.lean:23:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: PolynomialDifferentiation.lean:51:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3627/3666] Replayed NormalizedTrace
+warning: NormalizedTrace.lean:70:19: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [3635/3666] Replayed RootSelection
+warning: RootSelection.lean:85:26: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+warning: RootSelection.lean:125:26: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+⚠ [3638/3666] Replayed HomogeneousLowerBound
+warning: HomogeneousLowerBound.lean:23:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3639/3666] Replayed MinimumAttainment
+warning: MinimumAttainment.lean:13:32: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3645/3666] Replayed Erdos1131Asymptotic.ChebyshevBound
+warning: Erdos1131Asymptotic/ChebyshevBound.lean:179:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+⚠ [3646/3666] Replayed Erdos1131Asymptotic.ChebyshevFirstOrder
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:119:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:133:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:396:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:396:18: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:398:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:398:18: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:468:17: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:468:35: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:734:13: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevFirstOrder.lean:847:24: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3659/3666] Replayed Erdos1131Asymptotic.ChebyshevRootSums
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:469:39: `if_false` has been deprecated: Use `ite_false` instead
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:481:39: `if_false` has been deprecated: Use `ite_false` instead
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:605:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:623:12: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:637:42: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevRootSums.lean:662:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3660/3666] Replayed Erdos1131Asymptotic.ChebyshevMoment
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:135:8: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:137:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:209:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:209:25: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:213:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevMoment.lean:213:25: `if_neg` has been deprecated: Use `ite_eq_right` instead
+⚠ [3661/3666] Replayed Erdos1131Asymptotic.InterpolationTrace
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:60:8: `Matrix.det_of_upperTriangular` has been deprecated: Use `Matrix.det_of_isUpperTriangular` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:61:7: `Matrix.matrixOfPolynomials_blockTriangular` has been deprecated: Use `Matrix.matrixOfPolynomials_isUpperTriangular` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:132:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:133:10: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:136:4: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:183:15: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:183:29: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:207:15: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:207:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:222:30: `Polynomial.eval_finset_sum` has been deprecated: Use `Polynomial.eval_finsetSum` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:246:10: `intervalIntegral.integral_finset_sum` has been deprecated: Use `intervalIntegral.integral_finsetSum` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:258:10: `intervalIntegral.integral_finset_sum` has been deprecated: Use `intervalIntegral.integral_finsetSum` instead
+warning: Erdos1131Asymptotic/InterpolationTrace.lean:287:8: `intervalIntegral.integral_finset_sum` has been deprecated: Use `intervalIntegral.integral_finsetSum` instead
+⚠ [3663/3666] Replayed Erdos1131Asymptotic.ChebyshevGram
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:132:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:146:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:162:12: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:210:31: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:210:43: `if_pos` has been deprecated: Use `ite_eq_left` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:228:29: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:228:41: `if_neg` has been deprecated: Use `ite_eq_right` instead
+warning: Erdos1131Asymptotic/ChebyshevGram.lean:246:8: `if_neg` has been deprecated: Use `ite_eq_right` instead
+ℹ [3666/3666] Replayed Submission
+info: Submission.lean:69:0: 'Erdos1131Submission.minimum_eq_reference' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Submission.lean:70:0: 'Erdos1131Submission.asymptotic_coefficient_one_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Submission.lean:71:0: 'Erdos1131Submission.complete_problem' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3666 jobs).

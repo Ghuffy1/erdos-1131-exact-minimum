@@ -1,0 +1,78 @@
+Erdos1131.erdos1131_solution : ∀ (n : Nat)
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+    And (@Erdos1131.Admissible n nodes)
+      (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+        (∀ (other : Fin n → Real),
+          @Erdos1131.Admissible n other →
+            @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other)))
+theorem Erdos1131.erdos1131_solution : ∀ (n : Nat)
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+    And (@Erdos1131.Admissible n nodes)
+      (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+        (∀ (other : Fin n → Real),
+          @Erdos1131.Admissible n other →
+            @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))) :=
+fun (n : Nat) (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n) =>
+  @Exists.casesOn.{1} (Fin n → Real)
+    (fun (nodes : Fin n → Real) =>
+      And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)))
+    (fun
+        (x :
+          @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+            And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n))) =>
+      @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+        And (@Erdos1131.Admissible n nodes)
+          (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+            (∀ (other : Fin n → Real),
+              @Erdos1131.Admissible n other →
+                @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+    (Erdos1131.minimum_attained n hn)
+    fun (nodes : Fin n → Real)
+      (h : And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n))) =>
+    @And.casesOn.{0} (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n))
+      (fun (x : And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n))) =>
+        @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+          And (@Erdos1131.Admissible n nodes)
+            (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+              (∀ (other : Fin n → Real),
+                @Erdos1131.Admissible n other →
+                  @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+      h
+      fun (hnodes : @Erdos1131.Admissible n nodes)
+        (henergy : @Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)) =>
+      @Exists.intro.{1} (Fin n → Real)
+        (fun (nodes : Fin n → Real) =>
+          And (@Erdos1131.Admissible n nodes)
+            (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+              (∀ (other : Fin n → Real),
+                @Erdos1131.Admissible n other →
+                  @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))))
+        nodes
+        (@And.intro (@Erdos1131.Admissible n nodes)
+          (And (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+            (∀ (other : Fin n → Real),
+              @Erdos1131.Admissible n other →
+                @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other)))
+          hnodes
+          (@And.intro (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.algebraicMinimum n hn))
+            (∀ (other : Fin n → Real),
+              @Erdos1131.Admissible n other →
+                @LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))
+            (@Eq.trans.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n) (Erdos1131.algebraicMinimum n hn)
+              henergy
+              (@Eq.symm.{1} Real (Erdos1131.algebraicMinimum n hn) (Erdos1131.minimum n)
+                (Erdos1131.algebraicMinimum_eq_minimum n hn)))
+            fun (other : Fin n → Real) (hother : @Erdos1131.Admissible n other) =>
+            @Eq.mpr.{0} (@LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))
+              (@LE.le.{0} Real Real.instLE (Erdos1131.minimum n) (@Erdos1131.energy n other))
+              (@id.{0}
+                (@Eq.{1} Prop
+                  (@LE.le.{0} Real Real.instLE (Erdos1131.algebraicMinimum n hn) (@Erdos1131.energy n other))
+                  (@LE.le.{0} Real Real.instLE (Erdos1131.minimum n) (@Erdos1131.energy n other)))
+                (@congrArg.{1, 1} Real Prop (Erdos1131.algebraicMinimum n hn) (Erdos1131.minimum n)
+                  (fun (_a : Real) => @LE.le.{0} Real Real.instLE _a (@Erdos1131.energy n other))
+                  (Erdos1131.algebraicMinimum_eq_minimum n hn)))
+              (@Erdos1131.minimum_le_energy n other hother)))
+'Erdos1131.erdos1131_solution' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,188 @@
+Erdos1131.minimum_attained : ∀ (n : Nat)
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+    And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n))
+theorem Erdos1131.minimum_attained : ∀ (n : Nat)
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+    And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)) :=
+fun (n : Nat) (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n) =>
+  @Exists.casesOn.{1} (Erdos1131.InterpolationState n)
+    (fun (z : Erdos1131.InterpolationState n) =>
+      And (@Erdos1131.ValidInterpolationState n z)
+        (∀ (w : Erdos1131.InterpolationState n),
+          @Erdos1131.ValidInterpolationState n w →
+            @LE.le.{0} Real Real.instLE
+              (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+              (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w))))
+    (fun
+        (x :
+          @Exists.{1} (Erdos1131.InterpolationState n) fun (z : Erdos1131.InterpolationState n) =>
+            And (@Erdos1131.ValidInterpolationState n z)
+              (∀ (w : Erdos1131.InterpolationState n),
+                @Erdos1131.ValidInterpolationState n w →
+                  @LE.le.{0} Real Real.instLE
+                    (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                    (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w)))) =>
+      @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+        And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)))
+    (@Erdos1131.minimum_validState_exists n hn)
+    fun (z : Erdos1131.InterpolationState n)
+      (h :
+        And (@Erdos1131.ValidInterpolationState n z)
+          (∀ (w : Erdos1131.InterpolationState n),
+            @Erdos1131.ValidInterpolationState n w →
+              @LE.le.{0} Real Real.instLE
+                (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w)))) =>
+    @And.casesOn.{0} (@Erdos1131.ValidInterpolationState n z)
+      (∀ (w : Erdos1131.InterpolationState n),
+        @Erdos1131.ValidInterpolationState n w →
+          @LE.le.{0} Real Real.instLE
+            (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+            (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w)))
+      (fun
+          (x :
+            And (@Erdos1131.ValidInterpolationState n z)
+              (∀ (w : Erdos1131.InterpolationState n),
+                @Erdos1131.ValidInterpolationState n w →
+                  @LE.le.{0} Real Real.instLE
+                    (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                    (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w)))) =>
+        @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+          And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)))
+      h
+      fun (hz : @Erdos1131.ValidInterpolationState n z)
+        (hmin :
+          ∀ (w : Erdos1131.InterpolationState n),
+            @Erdos1131.ValidInterpolationState n w →
+              @LE.le.{0} Real Real.instLE
+                (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) w))) =>
+      @Exists.intro.{1} (Fin n → Real)
+        (fun (nodes : Fin n → Real) =>
+          And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) (Erdos1131.minimum n)))
+        (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)
+        (@And.intro (@Erdos1131.Admissible n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+          (@Eq.{1} Real (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+            (Erdos1131.minimum n))
+          (@Erdos1131.validState_admissible n z hz)
+          (@le_antisymm.{0} Real Real.partialOrder
+            (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) (Erdos1131.minimum n)
+            (@id.{0}
+              (@LE.le.{0} Real (@Preorder.toLE.{0} Real (@PartialOrder.toPreorder.{0} Real Real.partialOrder))
+                (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) (Erdos1131.minimum n))
+              (@le_csInf.{0} Real
+                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+                  Real.instConditionallyCompleteLinearOrder)
+                (@Set.ofPred.{0} Real fun (v : Real) =>
+                  @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                    And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v))
+                (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                (@Erdos1131.attainableValues_nonempty n hn)
+                fun (v : Real)
+                  (a :
+                    @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+                      (@Set.ofPred.{0} Real fun (v : Real) =>
+                        @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                          And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v))
+                      v) =>
+                @Exists.casesOn.{1} (Fin n → Real)
+                  (fun (nodes : Fin n → Real) =>
+                    And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v))
+                  (fun
+                      (x :
+                        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+                          (@Set.ofPred.{0} Real fun (v : Real) =>
+                            @Exists.{1} (Fin n → Real) fun (nodes : Fin n → Real) =>
+                              And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v))
+                          v) =>
+                    @LE.le.{0} Real
+                      (@Preorder.toLE.{0} Real
+                        (@PartialOrder.toPreorder.{0} Real
+                          (@SemilatticeSup.toPartialOrder.{0} Real
+                            (@Lattice.toSemilatticeSup.{0} Real
+                              (@ConditionallyCompleteLattice.toLattice.{0} Real
+                                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+                                  Real.instConditionallyCompleteLinearOrder))))))
+                      (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) v)
+                  a
+                  fun (nodes : Fin n → Real)
+                    (h : And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)) =>
+                  @And.casesOn.{0} (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)
+                    (fun (x : And (@Erdos1131.Admissible n nodes) (@Eq.{1} Real (@Erdos1131.energy n nodes) v)) =>
+                      @LE.le.{0} Real
+                        (@Preorder.toLE.{0} Real
+                          (@PartialOrder.toPreorder.{0} Real
+                            (@SemilatticeSup.toPartialOrder.{0} Real
+                              (@Lattice.toSemilatticeSup.{0} Real
+                                (@ConditionallyCompleteLattice.toLattice.{0} Real
+                                  (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+                                    Real.instConditionallyCompleteLinearOrder))))))
+                        (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) v)
+                    h
+                    fun (hnodes : @Erdos1131.Admissible n nodes)
+                      (henergy : @Eq.{1} Real (@Erdos1131.energy n nodes) v) =>
+                    have h :
+                      @LE.le.{0} Real Real.instLE
+                        (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                        (@Erdos1131.coefficientEnergy n
+                          (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes))) :=
+                      hmin (@Erdos1131.stateOfNodes n nodes) (@Erdos1131.stateOfNodes_valid n nodes hnodes);
+                    @Eq.mp.{0}
+                      (@LE.le.{0} Real Real.instLE
+                        (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                        (@Erdos1131.energy n
+                          (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes))))
+                      (@LE.le.{0} Real Real.instLE
+                        (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) v)
+                      (@congrArg.{1, 1} Real Prop
+                        (@Erdos1131.energy n
+                          (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes)))
+                        v
+                        (@LE.le.{0} Real Real.instLE
+                          (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)))
+                        henergy)
+                      (@Eq.mp.{0}
+                        (@LE.le.{0} Real Real.instLE
+                          (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                          (@Erdos1131.coefficientEnergy n
+                            (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes))))
+                        (@LE.le.{0} Real Real.instLE
+                          (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                          (@Erdos1131.energy n
+                            (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes))))
+                        (@congrArg.{1, 1} Real Prop
+                          (@Erdos1131.coefficientEnergy n
+                            (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes)))
+                          (@Erdos1131.energy n
+                            (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) (@Erdos1131.stateOfNodes n nodes)))
+                          (fun (_a : Real) =>
+                            @LE.le.{0} Real Real.instLE
+                              (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)) _a)
+                          (@Erdos1131.validState_energy n (@Erdos1131.stateOfNodes n nodes)
+                            (@Erdos1131.stateOfNodes_valid n nodes hnodes)))
+                        (@Eq.mp.{0}
+                          (@LE.le.{0} Real Real.instLE
+                            (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                            (@Erdos1131.coefficientEnergy n
+                              (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real)
+                                (@Erdos1131.stateOfNodes n nodes))))
+                          (@LE.le.{0} Real Real.instLE
+                            (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                            (@Erdos1131.coefficientEnergy n
+                              (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real)
+                                (@Erdos1131.stateOfNodes n nodes))))
+                          (@congrArg.{1, 1} Real Prop
+                            (@Erdos1131.coefficientEnergy n (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                            (@Erdos1131.energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z))
+                            (fun (_a : Real) =>
+                              @LE.le.{0} Real Real.instLE _a
+                                (@Erdos1131.coefficientEnergy n
+                                  (@Prod.snd.{0, 0} (Fin n → Real) (Fin n → Fin n → Real)
+                                    (@Erdos1131.stateOfNodes n nodes))))
+                            (@Erdos1131.validState_energy n z hz))
+                          h))))
+            (@Erdos1131.minimum_le_energy n (@Prod.fst.{0, 0} (Fin n → Real) (Fin n → Fin n → Real) z)
+              (@Erdos1131.validState_admissible n z hz))))
+'Erdos1131.minimum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]

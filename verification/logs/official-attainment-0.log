@@ -1,0 +1,44 @@
+⚠ [3485/3491] Replayed QuadraticSurjection
+warning: QuadraticSurjection.lean:27:4: Try `simp at hp` instead of `simpa using hp`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3489/3491] Replayed QuadraticContinuity
+warning: QuadraticContinuity.lean:20:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: QuadraticContinuity.lean:34:13: This simp argument is unused:
+  Metric.mem_sphere
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, dist_zero_right, norm_smul, norm_inv, hnorm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: QuadraticContinuity.lean:34:32: This simp argument is unused:
+  dist_zero_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [u, Metric.mem_sphere, norm_smul, norm_inv, hnorm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3490/3491] Replayed HomogeneousLowerBound
+warning: HomogeneousLowerBound.lean:23:4: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3491/3491] Replayed MinimumAttainment
+warning: MinimumAttainment.lean:13:32: Variable name `v` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _v
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (3491 jobs).

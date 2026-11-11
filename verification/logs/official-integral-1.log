@@ -1,0 +1,3 @@
+'OriginalProblem1131.integral_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.infimum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'OriginalProblem1131.full_original_problem' depends on axioms: [propext, Classical.choice, Quot.sound]

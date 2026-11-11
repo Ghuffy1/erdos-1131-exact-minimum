@@ -1,0 +1,79 @@
+⚠ [3191/3470] Replayed MonomialReduction
+warning: MonomialReduction.lean:157:8: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hij, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:157:46: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:167:10: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hij, hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:167:53: This simp argument is unused:
+  hij.symm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hij]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:170:17: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.add_apply, Finsupp.single_eq_same]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:170:55: This simp argument is unused:
+  Finsupp.single_eq_same
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finsupp.sub_apply, Finsupp.add_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:171:12: This simp argument is unused:
+  hij
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hij.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:12: This simp argument is unused:
+  Finsupp.sub_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.add_apply, hxi, hxj, Ne.symm hxi, Ne.symm hxj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:60: This simp argument is unused:
+  Ne.symm hxi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hxi, hxj, Ne.symm hxj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: MonomialReduction.lean:173:73: This simp argument is unused:
+  Ne.symm hxj
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Finsupp.sub_apply, Finsupp.add_apply, hxi, hxj, Ne.symm hxi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3193/3470] Replayed MonomialQuotient
+warning: MonomialQuotient.lean:62:9: Variable name `p` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _p
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+Build completed successfully (3520 jobs).

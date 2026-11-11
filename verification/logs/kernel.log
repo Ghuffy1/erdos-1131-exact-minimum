@@ -1,0 +1,3 @@
+Selected 58042 declarations in the complete proof dependency closure.
+Axioms [Quot.sound, propext, Classical.choice]
+PASS. All selected declarations replayed into an initially empty kernel environment.

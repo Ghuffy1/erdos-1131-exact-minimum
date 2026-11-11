@@ -1,0 +1,33 @@
+{
+  "source_repository_checks": {
+    "passed": true,
+    "proof_commit": "85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473",
+    "tracked_files": 92,
+    "author_order": [
+      "Will Howe",
+      "Grant Huffman",
+      "Jensen Kohlmeyer",
+      "Liam Kruer"
+    ],
+    "owner": "Ghuffy1",
+    "private": true,
+    "paper_pages": 9,
+    "source_manifest_entries_verified": 91,
+    "checks": [
+      "privacy scan",
+      "attribution consistency",
+      "paper identity and contents",
+      "pinned source manifest",
+      "module locations",
+      "toolchain dependency pin",
+      "Git whitespace",
+      "private owner metadata"
+    ]
+  },
+  "citation_schema_check": {
+    "passed": true,
+    "schema_source": "https://raw.githubusercontent.com/citation-file-format/citation-file-format/1.2.0/schema.json",
+    "schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+    "checked_utc": "2026-11-11T17:34:28.748369+00:00"
+  }
+}
