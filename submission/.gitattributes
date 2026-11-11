@@ -1,0 +1,2 @@
+# Keep significant context markers in the prepared unified patch.
+catalog.patch -whitespace

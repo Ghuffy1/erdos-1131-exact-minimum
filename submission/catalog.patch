@@ -1,0 +1,19 @@
+--- a/problems/catalog-0901-1000.md
++++ b/problems/catalog-0901-1000.md
+@@ -658,12 +658,13 @@
+ | Date proposed | No later than 1961 (bibliographic evidence) |
+ | Mathematical area | Analysis / Polynomials |
+ | Problem description | What is the minimum sum of squared integrals of the Lagrange basis functions? |
+-| Current status | Open |
+-| Lean proof | No |
++| Current status | Open<br>Complete-solution claim submitted for review. The proposed exact-minimum contributors are Will Howe, Grant Huffman, Jensen Kohlmeyer et al. |
++| Lean proof | No — a complete combined formalization is submitted for verification. [Original proof source](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473/Challenge.lean), target `OriginalProblem1131.full_original_problem`. [verification report](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/d64aff236eb7e63a55e8ac91309150c4a12548b0/verification/report.md). The proposed formalization contributors are Will Howe, Grant Huffman, Jensen Kohlmeyer et al. The earlier asymptotic formalization retains its upstream credit. |
++| Attribution basis | [Team contribution statement](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473/AUTHORS.md), [project authorship](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473/formalization.yaml), [prior asymptotic contribution and adaptations](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473/THIRD_PARTY.md). The four team members declare equal contributions to the new exact-minimum work. Ghuffy1 is the original repository owner and submitting account. |
+ | Eligible to claim | No |
+ | Historical bounty |  |
+ | Elapsed years | About 65 years (since 1961) |
+-| Publication details |  |
++| Publication details | [An exact algebraic construction for Erdős's interpolation minimum](https://github.com/Ghuffy1/erdos-1131-exact-minimum/blob/85bd4c4dc7c99de780b7fc7e4a657d0e2b60c473/paper/exact-minimum.pdf) — manuscript, November 11, 2026, Theorem 1.1 and Sections 2–7. The source combines this exact-value construction with the [previous coefficient-one asymptotic disproof](https://github.com/seanm27lol/erdos-1131-lean/blob/31574acf09ae50430c08da92288800fe7d26c7fd/SOLUTION.md). |
+ | Scholarly recognition |  |
+ 
+ <a id="JSP-000939"></a>
